@@ -16,11 +16,11 @@ export default function HeaderBar() {
           <div className="flex items-center mr-2">
            <Image
 
-                src="/globaltech-logo.png"
+                src="/logo.png"
                 alt="Global Tech"
-                width={120}
-                height={120}
-                quality={100}
+                width={140}
+                height={140}
+                quality={120}
                 priority
                 className="transition-all duration-300 hover:scale-105"
               />
