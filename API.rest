@@ -1,0 +1,5 @@
+https://globaltechnepal.com/api/clients
+
+
+###FAQs API
+https://globaltechnepal.com/api/faqs
