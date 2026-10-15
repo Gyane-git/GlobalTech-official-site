@@ -12,6 +12,10 @@ export default function ClientFeedback() {
       image: '/no-image.png',
       feedback: "Global Tech has become synonymous to 'ease' in terms of our accounting since the last fiscal year. With Global Tech, we can easily fill purchases, track receivables and payables, and even generate VAT reports. Moreover, with Global Tech's sales reports, it has provided us with required infrastructures to not just make plans, but take crucial decisions as well. We even thank Global Tech for their immaculate support when we needed help. We're happy and proud to be using Global Tech in our day to day accounting."
     },
+
+    
+
+
     {
       name: 'Jeevan Mahat',
       title: 'Director Finance',
@@ -19,6 +23,16 @@ export default function ClientFeedback() {
       image: '/no-image.png',
       feedback: "I have been using Global Tech for the past year and it has changed the way I run my business. The user interface is intuitive and easy to navigate, making it simple for me to manage my finances and stay on top of my expenses. The software also integrates seamlessly with business tools, saving me time and streamlining my workflow. I highly recommend Global Tech to our clients who are looking for a reliable and efficient accounting solution."
     },
+
+
+     {
+      name: 'Rohit Mishra',
+      title: 'Accountant',
+      company: 'Globel Tech',
+      image: '/no-image.png',
+      feedback: "Global Tech has become synonymous to 'ease' in terms of our accounting since the last fiscal year. With Global Tech, we can easily fill purchases, track receivables and payables, and even generate VAT reports. Moreover, with Global Tech's sales reports, it has provided us with required infrastructures to not just make plans, but take crucial decisions as well. We even thank Global Tech for their immaculate support when we needed help. We're happy and proud to be using Global Tech in our day to day accounting."
+    },
+
     {
       name: 'Rahul Sukwar',
       title: 'IT Manager',
