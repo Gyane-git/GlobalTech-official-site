@@ -30,23 +30,26 @@ export default function HeaderBar() {
 
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center space-x-4">
-            <a href="#" className="text-gray-700 rounded-lg hover:text-white hover:bg-[#01403e] p-4 font-medium">
-              DOCS
+            <a href="/home" className="text-gray-700 rounded-lg hover:text-white hover:bg-[#01403e] p-4 font-medium">
+              Home
             </a>
-            <a href="#" className="text-gray-700 rounded-lg hover:text-white hover:bg-[#01403e] p-4 font-medium">
-              FEATURES
+            <a href="/about" className="text-gray-700 rounded-lg hover:text-white hover:bg-[#01403e] p-4 font-medium">
+              About
             </a>
-            <a href="#" className="text-gray-700 rounded-lg hover:text-white hover:bg-[#01403e] p-4 font-medium">
-              PRICING
+            <a href="/services" className="text-gray-700 rounded-lg hover:text-white hover:bg-[#01403e] p-4 font-medium">
+              Services
             </a>
-            <a href="#" className="text-gray-700 rounded-lg hover:text-white hover:bg-[#01403e] p-4 font-medium">
-              SUPPORT
+            <a href="/products" className="text-gray-700 rounded-lg hover:text-white hover:bg-[#01403e] p-4 font-medium">
+              Products
             </a>
-            <a href="#" className="text-gray-700 rounded-lg hover:text-white hover:bg-[#01403e] p-4 font-medium">
-              BLOGS
+            <a href="/clients" className="text-gray-700 rounded-lg hover:text-white hover:bg-[#01403e] p-4 font-medium">
+              Clients
             </a>
-            <a href="#" className="text-gray-700 rounded-lg hover:text-white hover:bg-[#01403e] p-4 font-medium">
-              HELP
+            <a href="/careers" className="text-gray-700 rounded-lg hover:text-white hover:bg-[#01403e] p-4 font-medium">
+              Careers
+            </a>
+            <a href="/resources" className="text-gray-700 rounded-lg hover:text-white hover:bg-[#01403e] p-4 font-medium">
+              Resources
             </a>
           </nav>
 

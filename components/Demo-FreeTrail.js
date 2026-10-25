@@ -3,17 +3,63 @@ import { useState, useEffect } from 'react';
 
 export default function FreeTrials() {
   const [email, setEmail] = useState('');
+  const [status, setStatus] = useState('');
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [demoOpen, setDemoOpen] = useState(false);
+  const [demoForm, setDemoForm] = useState({
+    name: '', company: '', mobile: '', email: '', city: '', inquiry: 'Request a demo', interest: 'Not sure yet', message: '',
+  });
   const [isVisible, setIsVisible] = useState(true);
 
   useEffect(() => {
     setIsVisible(true);
   }, []);
 
-  const handleStartTrial = () => {
-    if (email) {
-      console.log('Email submitted:', email);
-      // Add your form submission logic here
+  const handleStartTrial = async () => {
+    setStatus('');
+    setIsSubmitting(true);
+    try {
+      const response = await fetch('/api/trial', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email }),
+      });
+      const result = await response.json();
+      if (!response.ok) throw new Error(result.error || 'Email could not be sent. Please try again.');
+      setStatus('success');
+      setEmail('');
+    } catch (error) {
+      setStatus(error.message || 'Email could not be sent. Please try again.');
+    } finally {
+      setIsSubmitting(false);
     }
+  };
+
+  const handleDemoSubmit = (event) => {
+    event.preventDefault();
+    const requiredValues = ['name', 'company', 'mobile', 'city', 'message'];
+    const emptyField = requiredValues.find((field) => !demoForm[field].trim());
+    if (emptyField) {
+      const input = event.currentTarget.elements.namedItem(emptyField);
+      input.setCustomValidity('Please fill out this field.');
+      input.reportValidity();
+      input.setCustomValidity('');
+      return;
+    }
+    const details = [
+      'Demo request from OMS|WEB website',
+      `Name: ${demoForm.name.trim()}`,
+      `Company: ${demoForm.company.trim()}`,
+      `Mobile: ${demoForm.mobile.trim()}`,
+      `Email: ${demoForm.email.trim() || 'Not provided'}`,
+      `City: ${demoForm.city.trim()}`,
+      `Inquiry for: ${demoForm.inquiry}`,
+      `Interested in: ${demoForm.interest}`,
+      `Message: ${demoForm.message.trim()}`,
+    ].join('\n');
+    window.open(`https://wa.me/9779802069643?text=${encodeURIComponent(details)}`, '_blank', 'noopener,noreferrer');
+    setDemoOpen(false);
+    setDemoForm({ name: '', company: '', mobile: '', email: '', city: '', inquiry: 'Request a demo', interest: 'Not sure yet', message: '' });
   };
 
   return (
@@ -125,9 +171,12 @@ export default function FreeTrials() {
             {/* Email Input */}
             <input
               type="email"
+              required
+              aria-label="Work email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               placeholder="Enter your work email"
+              onKeyDown={(event) => { if (event.key === 'Enter') handleStartTrial(); }}
               className="w-full px-4 py-3 text-gray-700 placeholder-gray-400 bg-gray-50 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-teal-500 transition-all"
             />
 
@@ -135,16 +184,17 @@ export default function FreeTrials() {
             <div className="flex flex-col sm:flex-row gap-3">
               <button
                 onClick={handleStartTrial}
+                disabled={isSubmitting}
                 className="flex-1 px-4 py-3 bg-teal-600 text-white font-semibold rounded-xl hover:bg-teal-700 transition shadow-md hover:shadow-lg"
               >
-                Start Free Trial
+                {isSubmitting ? 'Sending…' : 'Start Free Trial'}
               </button>
 
               <button
-                onClick={() => console.log("Demo clicked")}
+                onClick={() => setDemoOpen(true)}
                 className="flex-1 px-4 py-3 border-2 border-teal-600 text-teal-600 font-semibold rounded-xl hover:bg-teal-50 transition"
               >
-                View Demo
+                Request For Demo
               </button>
             </div>
 
@@ -164,6 +214,7 @@ export default function FreeTrials() {
               <span>No credit card required • Cancel anytime</span>
             </div>
           </div>
+          {status && status !== 'success' && <p role="alert" className="mt-3 text-sm text-red-700">{status}</p>}
         </div>
 
         {/* App download buttons */}
@@ -200,6 +251,42 @@ export default function FreeTrials() {
       </div>
     </div>
   </div>
+  {status === 'success' && (
+    <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 p-4" role="dialog" aria-modal="true" aria-labelledby="trial-success-title">
+      <div className="max-w-lg rounded-2xl bg-white p-6 shadow-2xl">
+        <button type="button" aria-label="Close" onClick={() => setStatus('')} className="float-right text-2xl text-gray-500">×</button>
+        <h2 id="trial-success-title" className="mb-3 text-xl font-bold text-gray-900">You will receive the demo link at your registered email address.</h2>
+      
+        <p className="mt-2 text-gray-700">For a quicker response, please contact our Marketing Team at <a className="font-semibold text-teal-700" href="tel:+9779851069643">+977-9851069643</a>.</p>
+        <button type="button" onClick={() => setStatus('')} className="mt-5 rounded-lg bg-teal-600 px-5 py-2 font-semibold text-white">Close</button>
+      </div>
+    </div>
+  )}
+  {demoOpen && (
+    <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 p-3 sm:p-5" onMouseDown={(event) => { if (event.target === event.currentTarget) setDemoOpen(false); }}>
+      <div role="dialog" aria-modal="true" aria-labelledby="demo-form-title" className="relative max-h-[92vh] w-full max-w-lg overflow-y-auto rounded-2xl bg-white p-5 shadow-2xl sm:p-6">
+        <button type="button" aria-label="Close demo request form" onClick={() => setDemoOpen(false)} className="absolute right-4 top-3 text-2xl leading-none text-indigo-950">×</button>
+        <h2 id="demo-form-title" className="text-xl font-bold text-indigo-950">Talk to Global Tech.</h2>
+        <p className="mb-4 mt-1 text-sm text-indigo-950">Tell us what you run and we will call you.</p>
+        <form onSubmit={handleDemoSubmit} className="space-y-3">
+          <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
+            <label className="block text-xs font-semibold text-indigo-950">Name <input required name="name" autoComplete="name" value={demoForm.name} onChange={(event) => setDemoForm({ ...demoForm, name: event.target.value })} className="mt-1 block w-full rounded-lg border border-gray-300 px-3 py-2 text-sm font-normal text-gray-900 outline-none focus:border-blue-600 focus:ring-2 focus:ring-blue-100" /></label>
+            <label className="block text-xs font-semibold text-indigo-950">Company <input required name="company" autoComplete="organization" value={demoForm.company} onChange={(event) => setDemoForm({ ...demoForm, company: event.target.value })} className="mt-1 block w-full rounded-lg border border-gray-300 px-3 py-2 text-sm font-normal text-gray-900 outline-none focus:border-blue-600 focus:ring-2 focus:ring-blue-100" /></label>
+            <label className="block text-xs font-semibold text-indigo-950">Mobile <input required type="tel" name="mobile" autoComplete="tel" pattern="[0-9+() -]{7,20}" title="Enter a valid phone number" value={demoForm.mobile} onChange={(event) => setDemoForm({ ...demoForm, mobile: event.target.value })} className="mt-1 block w-full rounded-lg border border-gray-300 px-3 py-2 text-sm font-normal text-gray-900 outline-none focus:border-blue-600 focus:ring-2 focus:ring-blue-100" /></label>
+            <label className="block text-xs font-semibold text-indigo-950">Email (optional) <input type="email" name="email" autoComplete="email" value={demoForm.email} onChange={(event) => setDemoForm({ ...demoForm, email: event.target.value })} className="mt-1 block w-full rounded-lg border border-gray-300 px-3 py-2 text-sm font-normal text-gray-900 outline-none focus:border-blue-600 focus:ring-2 focus:ring-blue-100" /></label>
+            <label className="block text-xs font-semibold text-indigo-950">City <input required name="city" autoComplete="address-level2" value={demoForm.city} onChange={(event) => setDemoForm({ ...demoForm, city: event.target.value })} className="mt-1 block w-full rounded-lg border border-gray-300 px-3 py-2 text-sm font-normal text-gray-900 outline-none focus:border-blue-600 focus:ring-2 focus:ring-blue-100" /></label>
+            <label className="block text-xs font-semibold text-indigo-950">Inquiry for <select required value={demoForm.inquiry} onChange={(event) => setDemoForm({ ...demoForm, inquiry: event.target.value })} className="mt-1 block w-full rounded-lg border border-gray-300 bg-white px-3 py-2 text-sm font-normal text-indigo-950"><option>Request a demo</option><option>Pricing</option><option>Product information</option><option>Other</option></select></label>
+          </div>
+          <label className="block text-xs font-semibold text-indigo-950">Interested in <select required value={demoForm.interest} onChange={(event) => setDemoForm({ ...demoForm, interest: event.target.value })} className="mt-1 block w-full rounded-lg border border-gray-300 bg-white px-3 py-2 text-sm font-normal text-indigo-950"><option>Not sure yet</option><option>Accounting</option><option>Inventory</option><option>Sales and billing</option><option>Complete ERP</option><option>Other</option></select></label>
+          <label className="block text-xs font-semibold text-indigo-950">Message <textarea required minLength={5} rows={4} value={demoForm.message} onChange={(event) => setDemoForm({ ...demoForm, message: event.target.value })} className="mt-1 block w-full resize-y rounded-lg border border-gray-300 px-3 py-2 text-sm font-normal text-gray-900 outline-none focus:border-blue-600 focus:ring-2 focus:ring-blue-100" /></label>
+          <button type="submit" className="flex w-full items-center justify-center gap-2 rounded-lg bg-gradient-to-r from-blue-600 to-indigo-700 px-4 py-3 text-sm font-semibold text-white hover:brightness-105 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-offset-2">
+            <span aria-hidden="true">◉</span> Send on WhatsApp
+          </button>
+          <p className="text-xs text-gray-500">Prefer chat? <a href="https://wa.me/9779802069643" target="_blank" rel="noreferrer" className="underline">WhatsApp +977 9802069643</a>.</p>
+        </form>
+      </div>
+    </div>
+  )}
 </section>
 
   );
