@@ -1,4 +1,4 @@
-import { Facebook, Twitter, Linkedin, Instagram, Youtube, Mail, Phone, MapPin } from 'lucide-react';
+import { Facebook, Music2,  Instagram, Youtube, Mail, Phone, MapPin } from 'lucide-react';
 import Image from "next/image";
 
 export default function Footer() {
@@ -173,19 +173,18 @@ export default function Footer() {
 
             {/* Social Media Links */}
             <div className="flex items-center gap-4">
-              <a href="#facebook" className="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-green-600 transition-colors">
+              <a href="https://www.facebook.com/globaltechnepal/" className="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-green-600 transition-colors">
                 <Facebook className="w-5 h-5" />
               </a>
-              <a href="#twitter" className="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-green-600 transition-colors">
-                <Twitter className="w-5 h-5" />
-              </a>
-              <a href="#linkedin" className="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-green-600 transition-colors">
-                <Linkedin className="w-5 h-5" />
-              </a>
-              <a href="#instagram" className="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-green-600 transition-colors">
+              <a href="https://www.instagram.com/globaltech.nepal/" className="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-green-600 transition-colors">
                 <Instagram className="w-5 h-5" />
               </a>
-              <a href="#youtube" className="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-green-600 transition-colors">
+              <a href="https://www.tiktok.com/@globaltechoms?_r=1&_t=ZS-9AqU8hrDjr3" className="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-green-600 transition-colors">
+                <Music2 className="w-5 h-5" />
+              </a>
+             
+              
+              <a href="https://www.youtube.com/@omsaccounting/videos" className="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-green-600 transition-colors">
                 <Youtube className="w-5 h-5" />
               </a>
             </div>
