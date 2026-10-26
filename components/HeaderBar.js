@@ -18,8 +18,8 @@ export default function HeaderBar() {
 
                 src="/logo.png"
                 alt="Global Tech"
-                width={140}
-                height={140}
+                width={160}
+                height={160}
                 quality={120}
                 priority
                 className="transition-all duration-300 hover:scale-105"
