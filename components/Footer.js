@@ -1,142 +1,174 @@
-import { Facebook, Music2,  Instagram, Youtube, Mail, Phone, MapPin } from 'lucide-react';
+"use client";
+
+import { useState } from "react";
 import Image from "next/image";
+import Link from "next/link";
+import {
+  Facebook,
+  Instagram,
+  Youtube,
+  Music2,
+  Mail,
+  Phone,
+  MapPin,
+  ShieldCheck,
+  CheckCircle2,
+  ArrowRight,
+  Clock,
+} from "lucide-react";
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
+  const [newsletterEmail, setNewsletterEmail] = useState("");
+  const [subscribed, setSubscribed] = useState(false);
+
+  const handleSubscribe = (e) => {
+    e.preventDefault();
+    if (newsletterEmail && /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(newsletterEmail)) {
+      setSubscribed(true);
+      setNewsletterEmail("");
+    }
+  };
 
   const footerLinks = {
     product: [
-      { name: 'Accounting', href: '/products' },
-      { name: 'Inventory', href: '/products' },
-      { name: 'Invoicing', href: '/products' },
-      { name: 'Point of Sales', href: '/products' },
-      { name: 'Documents', href: '/products' },
-      { name: 'Reporting', href: '/products' }
+      { name: "OMS Cloud Accounting", href: "/products" },
+      { name: "POS & Retail Billing", href: "/products" },
+      { name: "Inventory & Multi-Warehouse", href: "/products" },
+      { name: "Hospital & Clinic Manager", href: "/products" },
+      { name: "Payroll & HR Management", href: "/products" },
+      { name: "uSmart Salesman Mobile App", href: "/products" },
+    ],
+    services: [
+      { name: "Custom Software Development", href: "/services" },
+      { name: "Enterprise ERP Implementation", href: "/services" },
+      { name: "Cloud & Dedicated VPS Hosting", href: "/services" },
+      { name: "Web & Mobile App Solutions", href: "/services" },
+      { name: "Accounting Consultation & Training", href: "/services" },
+      { name: "IT Networking & Infrastructure", href: "/services" },
     ],
     company: [
-      { name: 'About Us', href: '/about' },
-      { name: 'Careers', href: '/careers' },
-      { name: 'Blog', href: '#blog' },
-      { name: 'Press', href: '#press' },
-      { name: 'Partners', href: '#partners' }
+      { name: "About GlobalTech", href: "/about" },
+      { name: "Our Clients & Partners", href: "/clients" },
+      { name: "Careers (We're Hiring)", href: "/careers" },
+      { name: "Contact & Head Office", href: "/contact" },
+      { name: "OMS Portal Login", href: "http://omslite.globaltech.com.np/Account/Login" },
     ],
-    resources: [
-      { name: 'Help Center', href: '#help' },
-      { name: 'Documentation', href: '#docs' },
-      { name: 'API Reference', href: '#api' },
-      { name: 'Community', href: '#community' },
-      { name: 'Webinars', href: '#webinars' }
-    ],
-    legal: [
-      { name: 'Privacy Policy', href: '#privacy' },
-      { name: 'Terms of Service', href: '#terms' },
-      { name: 'Cookie Policy', href: '#cookies' },
-      { name: 'GDPR Compliance', href: '#gdpr' }
-    ]
   };
 
   return (
-    <footer className="bg-[#01403e] text-gray-300">
-      {/* Main Footer Content */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-8">
-          {/* Brand Section */}
-          <div className="lg:col-span-2">
-            {/* <div className="flex items-center gap-2 mb-4">
-              <div className="w-8 h-8 bg-green-600 rounded-lg flex items-center justify-center transform rotate-45">
-                <div className="w-4 h-4 bg-white rounded-sm transform -rotate-45"></div>
-              </div>
-              <span className="text-2xl font-bold text-white">Global Tech</span>
-            </div> */}
-             {/* Logo */}
-            <div className="flex items-center mr-2 -mt-6 my-2">
-              <Image
+    <footer className="bg-[#01403e] text-slate-300 border-t border-emerald-950">
+      {/* Upper Main Footer Content */}
+      <div className="max-w-7xl mx-auto px-5 sm:px-8 lg:px-10 py-16">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10">
+          {/* Brand & Contact Info Column */}
+          <div className="lg:col-span-4 space-y-5">
+            <Link href="/" aria-label="GlobalTech home" className="inline-block">
+              <div className="bg-white/10 p-2.5 rounded-2xl inline-block backdrop-blur-md">
+                <Image
                   src="/logo.png"
-                  alt="Global Tech"
-                  width={200}
-                  height={200}
-                  quality={100}
-                  priority
-                  className="transition-all duration-300 hover:scale-105"
+                  alt="GlobalTech Solutions"
+                  width={160}
+                  height={50}
+                  className="h-auto w-36 brightness-0 invert"
                 />
               </div>
-            <p className="text-gray-400 mb-6 max-w-sm">
-              The most efficient way to manage your accounting in the cloud. Designed by professional accountants, built by tech experts.
+            </Link>
+
+            <p className="text-slate-300 text-xs sm:text-sm leading-relaxed max-w-sm">
+              Nepal&apos;s trusted software and technology partner for over 15 years. Providing IRD-certified accounting, enterprise ERP, web development, and cloud hosting solutions.
             </p>
-            
-            {/* Contact Info */}
-            <div className="space-y-3">
-              <div className="flex items-center gap-3">
-                <Mail className="w-5 h-5 text-green-500" />
-                <a href="mailto:info@globaltechnepal.com" className="hover:text-white transition-colors">
+
+            {/* Official Certification Badge */}
+            <div className="rounded-2xl border border-emerald-700/60 bg-emerald-900/40 p-3.5 text-xs text-emerald-200">
+              <div className="flex items-center gap-2 font-semibold text-lime-300">
+                <ShieldCheck size={16} /> Certified by IRD Nepal
+              </div>
+              <p className="mt-1 text-[11px] text-emerald-200/80 leading-normal">
+                Approved for electronic billing, CBMS data sync, and VAT Annexure 13 reporting.
+              </p>
+            </div>
+
+            {/* Contact Details List */}
+            <div className="space-y-2.5 text-xs text-slate-300 pt-2">
+              <div className="flex items-start gap-2.5">
+                <MapPin className="w-4 h-4 text-lime-400 shrink-0 mt-0.5" />
+                <span>Globaltech Solution Pvt. Ltd., Teku, Kathmandu, Nepal</span>
+              </div>
+              <div className="flex items-center gap-2.5">
+                <Phone className="w-4 h-4 text-lime-400 shrink-0" />
+                <a href="tel:+97715329949" className="hover:text-white transition">
+                  01-5329949 | 01-5329952 | 01-5329982
+                </a>
+              </div>
+              <div className="flex items-center gap-2.5">
+                <Mail className="w-4 h-4 text-lime-400 shrink-0" />
+                <a href="mailto:info@globaltechnepal.com" className="hover:text-white transition">
                   info@globaltechnepal.com
                 </a>
               </div>
-              <div className="flex items-center gap-3">
-                <Phone className="w-5 h-5 text-green-500" />
-                <a href="tel:+97715329949" className="hover:text-white transition-colors">
-                  01-5329949 | 5329952 | 5329982
-                </a>
-              </div>
-              <div className="flex items-start gap-3">
-                <MapPin className="w-5 h-5 text-green-500 flex-shrink-0 mt-1" />
-                <span>Globaltech Solution Pvt. Ltd.
-                  Teku, Kathmandu, Nepal</span>
+              <div className="flex items-center gap-2.5">
+                <Clock className="w-4 h-4 text-lime-400 shrink-0" />
+                <span>Sun – Fri: 9:30 AM – 6:00 PM NST</span>
               </div>
             </div>
           </div>
 
           {/* Product Links */}
-          <div>
-            <h3 className="text-white font-semibold text-lg mb-4">Product</h3>
-            <ul className="space-y-3">
+          <div className="lg:col-span-3">
+            <h3 className="text-white font-bold text-sm uppercase tracking-wider mb-4 pb-2 border-b border-emerald-800/60">
+              Products
+            </h3>
+            <ul className="space-y-2.5 text-xs sm:text-sm">
               {footerLinks.product.map((link) => (
                 <li key={link.name}>
-                  <a href={link.href} className="hover:text-white transition-colors">
-                    {link.name}
-                  </a>
+                  <Link
+                    href={link.href}
+                    className="hover:text-lime-300 transition-colors flex items-center gap-1.5"
+                  >
+                    <span className="text-emerald-500 text-[10px]">›</span>
+                    <span>{link.name}</span>
+                  </Link>
                 </li>
               ))}
             </ul>
           </div>
 
-          {/* Company Links */}
-          <div>
-            <h3 className="text-white font-semibold text-lg mb-4">Company</h3>
-            <ul className="space-y-3">
+          {/* Services Links */}
+          <div className="lg:col-span-3">
+            <h3 className="text-white font-bold text-sm uppercase tracking-wider mb-4 pb-2 border-b border-emerald-800/60">
+              IT Services
+            </h3>
+            <ul className="space-y-2.5 text-xs sm:text-sm">
+              {footerLinks.services.map((link) => (
+                <li key={link.name}>
+                  <Link
+                    href={link.href}
+                    className="hover:text-lime-300 transition-colors flex items-center gap-1.5"
+                  >
+                    <span className="text-emerald-500 text-[10px]">›</span>
+                    <span>{link.name}</span>
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Company & Support Links */}
+          <div className="lg:col-span-2">
+            <h3 className="text-white font-bold text-sm uppercase tracking-wider mb-4 pb-2 border-b border-emerald-800/60">
+              Company
+            </h3>
+            <ul className="space-y-2.5 text-xs sm:text-sm">
               {footerLinks.company.map((link) => (
                 <li key={link.name}>
-                  <a href={link.href} className="hover:text-white transition-colors">
-                    {link.name}
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          {/* Resources Links */}
-          <div>
-            <h3 className="text-white font-semibold text-lg mb-4">Resources</h3>
-            <ul className="space-y-3">
-              {footerLinks.resources.map((link) => (
-                <li key={link.name}>
-                  <a href={link.href} className="hover:text-white transition-colors">
-                    {link.name}
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          {/* Legal Links */}
-          <div>
-            <h3 className="text-white font-semibold text-lg mb-4">Legal</h3>
-            <ul className="space-y-3">
-              {footerLinks.legal.map((link) => (
-                <li key={link.name}>
-                  <a href={link.href} className="hover:text-white transition-colors">
-                    {link.name}
-                  </a>
+                  <Link
+                    href={link.href}
+                    className="hover:text-lime-300 transition-colors flex items-center gap-1.5"
+                  >
+                    <span className="text-emerald-500 text-[10px]">›</span>
+                    <span>{link.name}</span>
+                  </Link>
                 </li>
               ))}
             </ul>
@@ -144,50 +176,91 @@ export default function Footer() {
         </div>
 
         {/* Newsletter Section */}
-        <div className="mt-12 pt-8 border-t border-gray-800">
+        <div className="mt-14 pt-8 border-t border-emerald-900/80 flex flex-col md:flex-row md:items-center md:justify-between gap-6">
           <div className="max-w-md">
-            <h3 className="text-white font-semibold text-lg mb-3">Subscribe to our newsletter</h3>
-            <p className="text-gray-400 mb-4">Get the latest updates, tips, and insights delivered to your inbox.</p>
-            <div className="flex gap-2">
-              <input
-                type="email"
-                placeholder="Enter your email"
-                className="flex-1 px-4 py-3 bg-gray-800 border border-gray-700 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent"
-              />
-              <button className="px-6 py-3 bg-green-500 text-white font-semibold rounded-lg hover:bg-green-300 transition-colors">
-                Subscribe
-              </button>
-            </div>
+            <h4 className="text-white font-bold text-base">
+              Subscribe to GlobalTech Business Insights
+            </h4>
+            <p className="text-xs text-slate-300 mt-1">
+              Receive notifications about Nepal tax updates, IRD e-billing changes, and ERP best practices.
+            </p>
+          </div>
+
+          <div className="w-full md:max-w-md">
+            {subscribed ? (
+              <div className="flex items-center gap-2 rounded-xl bg-emerald-800/50 p-3 text-xs font-semibold text-lime-300 border border-emerald-700">
+                <CheckCircle2 size={16} /> Thank you for subscribing! We&apos;ll keep you posted.
+              </div>
+            ) : (
+              <form onSubmit={handleSubscribe} className="flex gap-2">
+                <input
+                  type="email"
+                  required
+                  value={newsletterEmail}
+                  onChange={(e) => setNewsletterEmail(e.target.value)}
+                  placeholder="Enter your business email"
+                  className="flex-1 px-4 py-2.5 bg-emerald-950/60 border border-emerald-800 rounded-xl text-xs text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-lime-400"
+                />
+                <button
+                  type="submit"
+                  className="px-5 py-2.5 bg-lime-400 text-[#01403e] text-xs font-bold rounded-xl hover:bg-lime-300 transition-colors shadow-sm"
+                >
+                  Subscribe
+                </button>
+              </form>
+            )}
           </div>
         </div>
       </div>
 
-      {/* Bottom Bar */}
-      <div className="border-t border-gray-800">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
-          <div className="flex flex-col md:flex-row justify-between items-center gap-4">
-            {/* Copyright */}
-            <p className="text-gray-400 text-sm">
-              © {currentYear} Global Tech. All rights reserved.
+      {/* Bottom Bar: Copyright & Socials */}
+      <div className="border-t border-emerald-950 bg-[#00302e]">
+        <div className="max-w-7xl mx-auto px-5 sm:px-8 lg:px-10 py-6 flex flex-col md:flex-row items-center justify-between gap-4">
+          <div className="text-xs text-slate-400 text-center md:text-left">
+            <p>© {currentYear} Globaltech Solution Pvt. Ltd. All rights reserved.</p>
+            <p className="text-[11px] text-slate-500 mt-0.5">
+              Registered in Nepal • IRD Certified Accounting & ERP Solutions
             </p>
+          </div>
 
-            {/* Social Media Links */}
-            <div className="flex items-center gap-4">
-              <a href="https://www.facebook.com/globaltechnepal/" className="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-green-600 transition-colors">
-                <Facebook className="w-5 h-5" />
-              </a>
-              <a href="https://www.instagram.com/globaltech.nepal/" className="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-green-600 transition-colors">
-                <Instagram className="w-5 h-5" />
-              </a>
-              <a href="https://www.tiktok.com/@globaltechoms?_r=1&_t=ZS-9AqU8hrDjr3" className="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-green-600 transition-colors">
-                <Music2 className="w-5 h-5" />
-              </a>
-             
-              
-              <a href="https://www.youtube.com/@omsaccounting/videos" className="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-green-600 transition-colors">
-                <Youtube className="w-5 h-5" />
-              </a>
-            </div>
+          {/* Social Media Links */}
+          <div className="flex items-center gap-3">
+            <a
+              href="https://www.facebook.com/globaltechnepal/"
+              target="_blank"
+              rel="noreferrer"
+              aria-label="Facebook"
+              className="w-9 h-9 rounded-full bg-emerald-900/60 border border-emerald-800/50 flex items-center justify-center text-slate-300 hover:text-white hover:bg-emerald-700 transition"
+            >
+              <Facebook size={16} />
+            </a>
+            <a
+              href="https://www.instagram.com/globaltech.nepal/"
+              target="_blank"
+              rel="noreferrer"
+              aria-label="Instagram"
+              className="w-9 h-9 rounded-full bg-emerald-900/60 border border-emerald-800/50 flex items-center justify-center text-slate-300 hover:text-white hover:bg-emerald-700 transition"
+            >
+              <Instagram size={16} />
+            </a>
+            <a
+              href="https://www.tiktok.com/@globaltechoms?_r=1&_t=ZS-9AqU8hrDjr3"
+              target="_blank"
+              rel="noreferrer"
+              aria-label="TikTok"
+              className="w-9 h-9 rounded-full bg-emerald-900/60 border border-emerald-800/50 flex items-center justify-center text-slate-300 hover:text-white hover:bg-emerald-700 transition"
+            >
+              <Music2 size={16} />
+            </a>
+            <a
+              href="https://www.youtube.com/@omsaccounting/videos"
+              target="_blank"
+              rel="noreferrer"
+              aria-label="YouTube"
+              className="w-9 h-9 rounded-full bg-emerald-900/60 border border-emerald-800/50 flex items-center justify-center text-slate-300 hover:text-white hover:bg-emerald-700 transition"
+            >
+              <Youtube size={16} />
+            </a>
           </div>
         </div>
       </div>

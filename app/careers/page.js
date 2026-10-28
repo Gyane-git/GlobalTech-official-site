@@ -3,8 +3,8 @@
 import { useState } from "react";
 import Link from "next/link";
 
-// ====== EDIT THIS DATA ======
-const CAREERS_EMAIL = "careers@globaltech.com";
+// ====== OFFICIAL CONTACT ======
+const CAREERS_EMAIL = "careers@globaltechnepal.com";
 
 const perks = [
   {

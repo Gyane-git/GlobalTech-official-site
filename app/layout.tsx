@@ -3,7 +3,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import HeaderBar from "../components/HeaderBar";
 import Footer from "../components/Footer";
-import TawkToWidget from "@/components/TawkToWidget";
+import FloatingSupport from "../components/FloatingSupport";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -16,30 +16,31 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "GlobalTech Solutions | Accounting Software, Cloud Services & Web Development",
+  title: "GlobalTech Solutions | IRD Certified Accounting Software, ERP & Cloud Services Nepal",
   description:
-    "GlobalTech Solutions provides powerful accounting software, ERP systems, cloud services, web development, and complete IT solutions for businesses of all sizes. Streamline operations with secure, scalable, and customizable digital solutions.",
+    "GlobalTech Solution Pvt. Ltd. (Teku, Kathmandu) provides IRD-certified OMS accounting software, enterprise ERP, cloud hosting, and web development in Nepal. Trusted by 10,000+ businesses.",
   keywords: [
-    "accounting software",
-    "ERP solutions",
-    "cloud services",
-    "web development",
-    "IT solutions company",
-    "business software",
-    "custom software development",
-    "order management system",
-    "digital transformation",
+    "accounting software Nepal",
+    "IRD approved billing software",
+    "OMS Lite",
+    "OMS ERP Nepal",
+    "GlobalTech Solution Kathmandu",
+    "cloud accounting software Nepal",
+    "POS software Nepal",
+    "hospital management software Nepal",
+    "payroll software Nepal",
+    "VAT billing software Nepal",
   ],
-   icons: {
+  icons: {
     icon: "/logo-global.png",
   },
-  authors: [{ name: "GlobalTech Solutions" }],
-  creator: "GlobalTech Solutions",
-  publisher: "GlobalTech Solutions",
+  authors: [{ name: "Globaltech Solution Pvt. Ltd." }],
+  creator: "Globaltech Solution Pvt. Ltd.",
+  publisher: "Globaltech Solution Pvt. Ltd.",
   openGraph: {
-    title: "GlobalTech Solutions | Accounting Software & Cloud Services",
+    title: "GlobalTech Solutions | IRD Certified Accounting & ERP Systems Nepal",
     description:
-      "A complete software and cloud solutions company offering accounting systems, ERP, web development, and IT services tailored for growing businesses.",
+      "Nepal's trusted business software company offering IRD-approved e-billing, OMS ERP, cloud hosting, and custom software development.",
     url: "https://globaltech.com.np/",
     siteName: "GlobalTech Solutions",
     images: [
@@ -55,11 +56,11 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "GlobalTech Solutions | Software, Cloud & Web Services",
+    title: "GlobalTech Solutions | IRD Certified Software & Cloud Services",
     description:
-      "Powerful business software including accounting, ERP, cloud hosting, and web development services.",
-    images: ["/og-image.png"],
-    creator: "@yourcompany",
+      "Powerful business software including accounting, ERP, POS billing, cloud hosting, and IT services in Nepal.",
+    images: ["/globaltech-logo.png"],
+    creator: "@globaltechnepal",
   },
   metadataBase: new URL("https://globaltech.com.np/"),
   alternates: {
@@ -68,45 +69,83 @@ export const metadata: Metadata = {
   robots: {
     index: true,
     follow: true,
-    nocache: true,
   },
 };
 
-
-// export default function RootLayout({
-//   children,
-// }: Readonly<{
-//   children: React.ReactNode;
-// }>) {
-//   return (
-//     <html lang="en">
-//       <body
-//         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-//       >
-//         <HeaderBar />
-//         {children}
-//         <Footer />
-//         {/* <TawkToWidget /> */}
-
-//       </body>
-//     </html>
-//   );
-// }
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "LocalBusiness",
+      "@id": "https://globaltech.com.np/#organization",
+      name: "Globaltech Solution Pvt. Ltd.",
+      url: "https://globaltech.com.np/",
+      logo: "https://globaltech.com.np/logo.png",
+      image: "https://globaltech.com.np/globaltech-logo.png",
+      description:
+        "Leading provider of IRD certified accounting software (OMS), enterprise ERP, cloud hosting, and custom software development in Kathmandu, Nepal.",
+      address: {
+        "@type": "PostalAddress",
+        streetAddress: "Teku",
+        addressLocality: "Kathmandu",
+        postalCode: "44600",
+        addressCountry: "NP",
+      },
+      telephone: "+977-1-5329949",
+      email: "info@globaltechnepal.com",
+      openingHoursSpecification: [
+        {
+          "@type": "OpeningHoursSpecification",
+          dayOfWeek: ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+          opens: "09:30",
+          closes: "18:00",
+        },
+      ],
+      priceRange: "$$",
+    },
+    {
+      "@type": "SoftwareApplication",
+      name: "GlobalTech OMS (Organization Management Software)",
+      operatingSystem: "Windows, Linux, Web, Android, iOS",
+      applicationCategory: "BusinessApplication",
+      offers: {
+        "@type": "Offer",
+        price: "0",
+        priceCurrency: "NPR",
+        description: "30-Day Free Trial Available",
+      },
+      featureList: [
+        "IRD Certified Electronic Tax Invoicing",
+        "Automated VAT Annexure 13 Sales & Purchase Registers",
+        "Multi-Warehouse Inventory & Batch Tracking",
+        "Point of Sale (POS) Counter Billing",
+        "Biometric Attendance & Payroll Processing",
+      ],
+    },
+  ],
+};
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
+    <html lang="en" className="scroll-smooth">
+      <head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
+      </head>
+      <body className={`${geistSans.variable} ${geistMono.variable} antialiased bg-white text-slate-900`}>
         <HeaderBar />
 
         {children}
 
         <Footer />
 
+        {/* Floating WhatsApp & Hotline Support Widget */}
+        <FloatingSupport />
+
         {/* Tawk.to Chat Widget */}
-        <script
+        {/* <script
           dangerouslySetInnerHTML={{
             __html: `
               var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
@@ -120,7 +159,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
               })();
             `,
           }}
-        />
+        /> */}
       </body>
     </html>
   );

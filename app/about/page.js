@@ -1,6 +1,7 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState } from "react";
+import Image from "next/image";
 import Link from "next/link";
 import {
   ArrowRight,
@@ -15,136 +16,221 @@ import {
   CheckCircle,
   Play,
   Quote,
+  ShieldCheck,
+  Building2,
+  Calendar,
+  Sparkles,
 } from "lucide-react";
 
 export default function AboutPage() {
   const [activeValue, setActiveValue] = useState(0);
   const [isVideoOpen, setIsVideoOpen] = useState(false);
 
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setActiveValue((prev) => (prev + 1) % 4);
-    }, 3000);
-    return () => clearInterval(interval);
-  }, []);
+  const stats = [
+    { number: "10,000+", label: "Active Businesses in Nepal", icon: Users },
+    { number: "100+", label: "Enterprise Projects Completed", icon: Target },
+    { number: "15+", label: "Years of Industry Leadership", icon: Award },
+    { number: "99.8%", label: "Client Retention Rate", icon: TrendingUp },
+  ];
+
+  const milestones = [
+    {
+      year: "2010",
+      title: "Company Founded in Kathmandu",
+      desc: "Founded by a pool of experienced accounting and IT professionals in Teku, Kathmandu with an ambition to revolutionize local enterprise computing.",
+    },
+    {
+      year: "2014",
+      title: "Launch of OMS ERP 1.0",
+      desc: "Released the first unified Organization Management Software (OMS) combining general ledger, trading inventory, and counter sales billing.",
+    },
+    {
+      year: "2018",
+      title: "Certified by IRD Nepal",
+      desc: "Officially certified and approved by the Inland Revenue Department (IRD) for Electronic Billing and CBMS integration.",
+    },
+    {
+      year: "2021",
+      title: "OMS Cloud & Mobile Era",
+      desc: "Transitioned OMS to modern high-availability cloud architecture with Android/iOS sales force apps and real-time multi-branch sync.",
+    },
+    {
+      year: "Present",
+      title: "10,000+ Business Deployments",
+      desc: "Proudly serving top conglomerates, hospital chains, retail stores, and manufacturers throughout Nepal with ongoing local support.",
+    },
+  ];
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-green-50/30 to-slate-50">
+    <div className="min-h-screen bg-slate-50 text-slate-900">
       {/* Hero Section */}
-      <section className="relative overflow-hidden pt-32 pb-24 px-6">
-        {/* Animated Background Elements */}
-        <div className="absolute inset-0 overflow-hidden pointer-events-none">
-          <div className="absolute top-20 left-10 w-72 h-72 bg-green-400/10 rounded-full blur-3xl animate-float" />
-          <div className="absolute bottom-20 right-10 w-96 h-96 bg-green-400/10 rounded-full blur-3xl animate-float-delayed" />
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-gradient-to-r from-green-500/5 to-green-500/5 rounded-full blur-3xl" />
-        </div>
+      <section className="relative overflow-hidden bg-[#0a4d4d] text-white pt-28 pb-20 px-6">
+        <div
+          aria-hidden="true"
+          className="pointer-events-none absolute inset-0 opacity-15"
+          style={{
+            backgroundImage:
+              "radial-gradient(rgba(255, 255, 255, 0.25) 1px, transparent 1px)",
+            backgroundSize: "32px 32px",
+          }}
+        />
+        <div
+          aria-hidden="true"
+          className="absolute -right-20 -top-20 h-96 w-96 rounded-full bg-emerald-400/15 blur-3xl"
+        />
 
         <div className="max-w-7xl mx-auto relative z-10">
-          <div className="text-center max-w-4xl mx-auto">
-            <div className="inline-flex items-center gap-2 px-4 py-2 bg-green-100 text-green-700 rounded-full text-sm font-semibold mb-6 animate-fade-in">
-              <div className="w-2 h-2 bg-green-600 rounded-full animate-pulse" />
-              Trusted by 100+ Companies 
+          <div className="text-center max-w-3xl mx-auto">
+            <div className="inline-flex items-center gap-2 px-4 py-1.5 bg-emerald-950/70 border border-lime-400/30 text-lime-300 rounded-full text-xs font-semibold mb-6">
+              <ShieldCheck size={14} className="text-lime-400" />
+              15+ Years Empowering Nepal&apos;s Business Growth
             </div>
 
-            <h1 className="text-6xl md:text-7xl lg:text-8xl font-bold mb-6 tracking-tight animate-slide-up">
-              <span className="bg-gradient-to-r from-gray-900 via-green-900 to-gray-900 bg-clip-text text-transparent">
-                Building Digital
-              </span>
-              <br />
-              <span className="bg-gradient-to-r from-green-600 via-green-600 to-green-600 bg-clip-text text-transparent">
-                Excellence
+            <h1 className="text-4xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight leading-[1.12]">
+              Building Nepal&apos;s Most Trusted{" "}
+              <span className="bg-gradient-to-r from-lime-300 via-emerald-200 to-white bg-clip-text text-transparent">
+                Digital Infrastructure
               </span>
             </h1>
 
-            <p className="text-xl md:text-2xl text-gray-600 mb-8 leading-relaxed max-w-3xl mx-auto animate-fade-in-delayed">
-              We transform bold ideas into powerful digital solutions that drive
-              growth, innovation, and lasting impact.
+            <p className="mt-6 text-base sm:text-xl text-emerald-100/90 leading-relaxed max-w-2xl mx-auto font-normal">
+              From small retail counters to nationwide business conglomerates, GlobalTech provides IRD-certified accounting, enterprise ERP, and reliable cloud solutions.
             </p>
 
-            
-{/* Hero Buttons */}
-<div className="flex flex-wrap items-center justify-center gap-4 animate-fade-in-delayed-2">
-  <Link
-    href="/contact"
-    className="group px-8 py-4 bg-gradient-to-r from-green-600 to-green-600 text-white font-semibold rounded-xl hover:shadow-2xl hover:shadow-green-500/50 transition-all duration-300 hover:scale-105 flex items-center gap-2"
-  >
-    Start Your Project
-    <ArrowRight
-      size={20}
-      className="group-hover:translate-x-1 transition-transform"
-    />
-  </Link>
+            <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
+              <Link
+                href="/contact"
+                className="inline-flex items-center gap-2 rounded-xl bg-lime-400 px-6 py-3.5 text-xs sm:text-sm font-bold text-[#01403e] shadow-lg hover:bg-lime-300 transition"
+              >
+                <span>Partner With Us</span>
+                <ArrowRight size={15} />
+              </Link>
 
-  <button
-    type="button"
-    onClick={() => setIsVideoOpen(true)}
-    className="group px-8 py-4 bg-white text-gray-900 font-semibold rounded-xl border-2 border-gray-200 hover:border-green-600 hover:shadow-xl transition-all duration-300 flex items-center gap-2"
-  >
-    <Play
-      size={20}
-      className="group-hover:scale-110 transition-transform"
-    />
-    Watch Our Story
-  </button>
-</div>
+              <button
+                type="button"
+                onClick={() => setIsVideoOpen(true)}
+                className="inline-flex items-center gap-2 rounded-xl border border-white/30 bg-white/10 px-6 py-3.5 text-xs sm:text-sm font-semibold text-white hover:bg-white/20 transition backdrop-blur-sm"
+              >
+                <Play size={15} className="fill-white" />
+                <span>Watch Product Tour</span>
+              </button>
+            </div>
+          </div>
 
-{/* YouTube Video Modal */}
-{isVideoOpen && (
-  <div
-    className="fixed inset-0 z-[9999] flex items-center justify-center bg-black/80 p-4"
-    onClick={() => setIsVideoOpen(false)}
-  >
-    <div
-      className="relative w-full max-w-4xl overflow-hidden rounded-2xl bg-black shadow-2xl"
-      onClick={(e) => e.stopPropagation()}
-    >
-      {/* Close Button */}
-      <button
-        type="button"
-        onClick={() => setIsVideoOpen(false)}
-        className="absolute right-3 top-3 z-10 flex h-10 w-10 items-center justify-center rounded-full bg-black/70 text-2xl text-white hover:bg-red-600"
-        aria-label="Close video"
-      >
-        &times;
-      </button>
-
-      {/* Responsive YouTube Player */}
-      <div className="aspect-video w-full">
-        <iframe
-          className="h-full w-full"
-          src="https://www.youtube.com/embed/ENUc2ikVeB8?autoplay=1&rel=0"
-          title="Watch Our Story"
-          allow="autoplay; encrypted-media; picture-in-picture; fullscreen"
-          referrerPolicy="strict-origin-when-cross-origin"
-          allowFullScreen
-        />
-      </div>
-    </div>
-  </div>
-)}
-
+          {/* Stats Bar */}
+          <div className="max-w-6xl mx-auto mt-16">
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6">
+              {stats.map((stat, idx) => (
+                <div
+                  key={idx}
+                  className="rounded-2xl border border-emerald-800/80 bg-emerald-950/60 p-5 text-center backdrop-blur-md shadow-lg"
+                >
+                  <stat.icon className="w-6 h-6 text-lime-400 mx-auto mb-2" />
+                  <div className="text-2xl sm:text-3xl font-extrabold text-white">
+                    {stat.number}
+                  </div>
+                  <div className="text-xs text-emerald-200/80 mt-1 font-medium">
+                    {stat.label}
+                  </div>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
+      </section>
 
-        {/* Stats Bar */}
-        <div className="max-w-7xl mx-auto mt-20 relative z-10">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
-            {[
-              { number: "10000+", label: "Happy Clients", icon: Users },
-              { number: "100+", label: "Projects Delivered", icon: Target },
-              { number: "10+", label: "Years Experience", icon: Award },
-              { number: "99%", label: "Client Satisfaction", icon: TrendingUp },
-            ].map((stat, idx) => (
-              <div
-                key={idx}
-                className="bg-white/80 backdrop-blur-lg rounded-2xl p-6 shadow-lg border border-gray-100 hover:shadow-xl hover:scale-105 transition-all duration-300"
-              >
-                <stat.icon className="w-8 h-8 text-green-600 mb-3" />
-                <div className="text-4xl font-bold bg-gradient-to-r from-green-600 to-green-600 bg-clip-text text-transparent mb-1">
-                  {stat.number}
+      {/* Story Section */}
+      <section className="py-20 px-6 bg-white border-b border-slate-200">
+        <div className="max-w-7xl mx-auto">
+          <div className="grid md:grid-cols-12 gap-12 items-center">
+            <div className="md:col-span-7">
+              <div className="inline-block px-3.5 py-1 bg-emerald-50 text-emerald-800 rounded-full text-xs font-bold uppercase tracking-wider mb-3">
+                Our Story & Origins
+              </div>
+              <h2 className="text-3xl sm:text-4xl font-bold text-slate-900 leading-tight">
+                From a pool of ambitious professionals to a nationwide technology group.
+              </h2>
+              <div className="space-y-4 text-sm sm:text-base text-slate-600 mt-5 leading-relaxed">
+                <p>
+                  Globaltech Solution Pvt. Ltd. was founded by a dedicated team of finance experts, chartered accountants, and senior software architects with more than 15 years of industry experience. Headquartered in Teku, Kathmandu, our founding objective was to deliver a single integrated solution for Accounting, Operations, System Integration, Networking, and Cloud Hosting.
+                </p>
+                <p>
+                  Over the years, we developed the Organization Management Software (OMS) suite, which has evolved into Nepal&apos;s premier IRD-certified business system. Today, GlobalTech is a comprehensive technology group powering enterprises across manufacturing, healthcare, distribution, retail, and education.
+                </p>
+              </div>
+
+              <div className="mt-7 flex flex-wrap gap-3">
+                <Link
+                  href="/clients"
+                  className="inline-flex items-center gap-2 rounded-xl bg-[#01403e] px-5 py-2.5 text-xs font-semibold text-white hover:bg-[#075351] transition"
+                >
+                  <span>Meet Our Clients</span>
+                  <ArrowRight size={14} />
+                </Link>
+                <Link
+                  href="/products"
+                  className="inline-flex items-center gap-2 rounded-xl border border-slate-300 px-5 py-2.5 text-xs font-semibold text-slate-700 hover:bg-slate-50 transition"
+                >
+                  <span>Explore OMS Modules</span>
+                </Link>
+              </div>
+            </div>
+
+            <div className="md:col-span-5">
+              <div className="relative rounded-3xl overflow-hidden border-4 border-emerald-100 shadow-xl bg-slate-100">
+                <Image
+                  src="/aboutimage.png"
+                  alt="GlobalTech Solutions Office & Team"
+                  width={600}
+                  height={450}
+                  className="w-full h-auto object-cover"
+                />
+                <div className="absolute bottom-4 left-4 right-4 rounded-2xl bg-white/95 p-4 shadow-lg backdrop-blur-sm border border-slate-100">
+                  <div className="text-2xl font-bold text-emerald-800">15+ Years</div>
+                  <div className="text-xs text-slate-600">
+                    Continuous technological support & innovation for Nepali organizations.
+                  </div>
                 </div>
-                <div className="text-sm text-gray-600 font-medium">
-                  {stat.label}
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Company Milestones Timeline */}
+      <section className="py-20 px-6 bg-slate-50 border-b border-slate-200">
+        <div className="max-w-5xl mx-auto">
+          <div className="text-center mb-14">
+            <span className="inline-flex items-center gap-1.5 rounded-full bg-emerald-100/70 px-3.5 py-1 text-xs font-semibold text-emerald-900 mb-2">
+              <Calendar size={13} /> Our Growth Path
+            </span>
+            <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-slate-900">
+              The Journey of GlobalTech
+            </h2>
+            <p className="mt-2 text-xs sm:text-sm text-slate-600">
+              Key milestones that shaped our evolution into a leading ERP provider in Nepal.
+            </p>
+          </div>
+
+          <div className="relative border-l-2 border-emerald-200 ml-4 sm:ml-32 space-y-8">
+            {milestones.map((m, idx) => (
+              <div key={idx} className="relative pl-6 sm:pl-8 group">
+                {/* Year Marker */}
+                <div className="absolute -left-3.5 top-1.5 h-7 w-7 rounded-full bg-[#01403e] border-4 border-white text-white flex items-center justify-center text-[10px] font-bold shadow">
+                  {idx + 1}
+                </div>
+                <div className="hidden sm:block absolute -left-28 top-1.5 text-right w-20 font-bold text-emerald-800 text-sm">
+                  {m.year}
+                </div>
+
+                <div className="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm transition hover:shadow-md hover:border-emerald-300">
+                  <span className="sm:hidden inline-block text-xs font-bold text-emerald-800 mb-1">
+                    {m.year}
+                  </span>
+                  <h3 className="text-base font-bold text-slate-900">{m.title}</h3>
+                  <p className="mt-1 text-xs sm:text-sm text-slate-600 leading-relaxed">
+                    {m.desc}
+                  </p>
                 </div>
               </div>
             ))}
@@ -152,60 +238,48 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* Story Section */}
-      <section className="py-24 px-6 bg-white">
-        <div className="max-w-7xl mx-auto">
-          <div className="grid md:grid-cols-2 gap-16 items-center">
-            <div>
-              <div className="inline-block px-4 py-2 bg-green-50 text-green-600 rounded-full text-sm font-semibold mb-4">
-                Our Story
-              </div>
-              <h2 className="text-5xl font-bold mb-6 text-gray-900 leading-tight">
-                From a pool of ambitious professionals to a technology group.{" "}
-                <span className="text-green-600"></span>
-              </h2>
-              <div className="space-y-4 text-lg text-gray-600 leading-relaxed">
-                <p>
-                  Global Tech is a company, founded by a pool of talented and ambitious professionals having more than 15 years of experiences in Business Development, ERP Solutions, Software Development, System & Networking Solutions. We grouped together with an aim to provide one step solution for Software, System, Networking and Cloud Computing. We develop Organization Management Software (OMS) as per customer need and deliver customized ERP software which helps them for their business growth. After all these years of hard work and experience, Global Tech now has a Tech Group.
-                </p>
-                {/* <p>
-                  Today, we combine cutting-edge technology with human-centered
-                  design to create solutions that don't just work—they
-                  transform. Our approach is built on collaboration,
-                  transparency, and a relentless commitment to excellence.
-                </p>
-                <p>
-                  From startups to Fortune 500 companies, we've helped
-                  organizations across industries realize their digital
-                  ambitions and achieve measurable results.
-                </p> */}
-              </div>
-
-              <div className="mt-8 flex flex-wrap gap-4">
-                <Link
-                  href="/case-studies"
-                  className="inline-flex items-center gap-2 text-green-600 font-semibold hover:gap-3 transition-all"
-                >
-                  View Case Studies
-                  <ArrowRight size={18} />
-                </Link>
-              </div>
-            </div>
-
-            <div className="relative">
-              <div className="aspect-square rounded-3xl bg-gradient-to-br from-green-100 to-green-100 overflow-hidden shadow-2xl">
-                <img
-                  src="/aboutimage.png"
-                  alt="Global Tech Team"
-                  className=""
-                />
-              </div>
-              <div className="absolute -bottom-6 -right-6 bg-white rounded-2xl p-6 shadow-xl border border-gray-100 max-w-xs">
-                <div className="text-3xl font-bold text-green-600 mb-1">
-                  10+
+      {/* Managing Director Message / Leadership */}
+      <section className="py-20 px-6 bg-white border-b border-slate-200">
+        <div className="max-w-5xl mx-auto">
+          <div className="rounded-3xl border border-slate-200 bg-gradient-to-br from-slate-50 via-emerald-50/30 to-white p-8 sm:p-12 shadow-sm">
+            <div className="grid md:grid-cols-12 gap-8 items-center">
+              <div className="md:col-span-4 flex flex-col items-center text-center">
+                <div className="relative h-48 w-48 rounded-full overflow-hidden border-4 border-white shadow-xl bg-slate-200">
+                  <Image
+                    src="/man.png"
+                    alt="Sanjay Rauniyar - Managing Director"
+                    width={200}
+                    height={200}
+                    className="h-full w-full object-cover object-top"
+                  />
                 </div>
-                <div className="text-sm text-gray-600">
-                  Years of delivering excellence in digital solutions
+                <h3 className="mt-4 text-lg font-bold text-slate-900">
+                  Sanjay Rauniyar
+                </h3>
+                <p className="text-xs font-semibold text-emerald-700">
+                  Managing Director, GlobalTech Solution
+                </p>
+                <span className="mt-1 inline-block rounded-full bg-emerald-100 px-3 py-0.5 text-[10px] font-medium text-emerald-800">
+                  Teku, Kathmandu
+                </span>
+              </div>
+
+              <div className="md:col-span-8 space-y-4">
+                <Quote size={32} className="text-emerald-300" />
+                <h3 className="text-2xl font-bold text-slate-900">
+                  A Message from Leadership
+                </h3>
+                <p className="text-sm sm:text-base text-slate-700 leading-relaxed italic">
+                  &ldquo;At GlobalTech, our core conviction is that Nepalese enterprises deserve software that is just as powerful, dependable, and secure as international solutions, while remaining fully tuned to local tax rules, VAT formats, and day-to-day business operations. Every module of OMS has been sculpted by listening directly to thousands of accountants, storekeepers, and entrepreneurs across Nepal. We are proud to be your local technology partners.&rdquo;
+                </p>
+                <div className="pt-2 flex items-center gap-4 text-xs text-slate-500 font-medium">
+                  <span className="flex items-center gap-1.5">
+                    <CheckCircle size={14} className="text-emerald-600" /> 100% Nepali Engineering
+                  </span>
+                  <span>•</span>
+                  <span className="flex items-center gap-1.5">
+                    <ShieldCheck size={14} className="text-emerald-600" /> IRD Compliant
+                  </span>
                 </div>
               </div>
             </div>
@@ -214,292 +288,77 @@ export default function AboutPage() {
       </section>
 
       {/* Values Section */}
-      <section className="py-24 px-6 bg-gradient-to-br from-gray-900 via-green-900 to-gray-900 text-white relative overflow-hidden">
-        <div className="absolute inset-0 opacity-10">
-          <div className="absolute inset-0 bg-[url('/grid-pattern.svg')] bg-repeat" />
-        </div>
-
-        <div className="max-w-7xl mx-auto relative z-10">
-          <div className="text-center mb-16">
-            <h2 className="text-5xl font-bold mb-4">Our Core Values</h2>
-            <p className="text-xl text-green-200 max-w-2xl mx-auto">
-              The principles that guide every decision we make and every
-              solution we build
+      <section className="py-20 px-6 bg-gradient-to-br from-[#01403e] to-[#0a4d4d] text-white">
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-14">
+            <span className="inline-block text-xs font-semibold uppercase tracking-wider text-lime-300 mb-2">
+              Our Core Principles
+            </span>
+            <h2 className="text-3xl sm:text-4xl font-bold">What Guides Our Work</h2>
+            <p className="text-sm text-emerald-100/90 mt-2 max-w-xl mx-auto">
+              The fundamental standards that drive our engineering, client support, and product roadmaps.
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
             {[
               {
-                icon: Code,
-                title: "Innovation First",
-                description:
-                  "We push boundaries with cutting-edge technology and creative problem-solving",
-                color: "from-green-500 to-teal-500",
+                icon: Shield,
+                title: "Integrity & Compliance",
+                desc: "We build tax-compliant, audit-ready systems that give business owners total financial peace of mind.",
               },
               {
-                icon: Shield,
-                title: "Trust & Security",
-                description:
-                  "Your data and success are our top priority, protected at every level",
-                color: "from-green-500 to-green-500",
+                icon: Code,
+                title: "Engineering Excellence",
+                desc: "Clean database architecture, offline resilience, and high-speed execution even on large datasets.",
               },
               {
                 icon: Zap,
-                title: "Speed & Quality",
-                description:
-                  "Rapid delivery without compromising on excellence or attention to detail",
-                color: "from-green-500 to-green-500",
+                title: "Dedicated Local Support",
+                desc: "No outsourced phone trees. Real engineers in Teku ready to visit your counter or connect via remote screen.",
               },
               {
                 icon: Globe,
-                title: "Global Impact",
-                description:
-                  "Building solutions that scale globally while serving locally",
-                color: "from-green-500 to-green-500",
+                title: "Continuous Innovation",
+                desc: "From desktop to cloud and mobile apps, we keep our clients at the forefront of digital efficiency.",
               },
-            ].map((value, idx) => (
+            ].map((v, idx) => (
               <div
                 key={idx}
-                className={`group bg-white/5 backdrop-blur-sm rounded-2xl p-8 border border-white/10 hover:bg-white/10 hover:border-white/20 transition-all duration-300 cursor-pointer ${
-                  activeValue === idx ? "ring-2 ring-white/30 scale-105" : ""
-                }`}
-                onMouseEnter={() => setActiveValue(idx)}
+                className="rounded-2xl border border-emerald-700/60 bg-emerald-950/40 p-6 backdrop-blur-sm"
               >
-                <div
-                  className={`w-16 h-16 rounded-2xl bg-gradient-to-br ${value.color} flex items-center justify-center mb-6 group-hover:scale-110 transition-transform`}
-                >
-                  <value.icon className="w-8 h-8 text-white" />
-                </div>
-                <h3 className="text-2xl font-bold mb-3">{value.title}</h3>
-                <p className="text-green-200 leading-relaxed">
-                  {value.description}
-                </p>
+                <v.icon className="w-8 h-8 text-lime-400 mb-4" />
+                <h3 className="text-lg font-bold text-white mb-2">{v.title}</h3>
+                <p className="text-xs text-emerald-100/80 leading-relaxed">{v.desc}</p>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Mission & Vision */}
-      <section className="py-24 px-6">
-        <div className="max-w-7xl mx-auto">
-          <div className="grid md:grid-cols-2 gap-12">
-            {/* Mission */}
-            <div className="bg-gradient-to-br from-green-50 to-green-50 rounded-3xl p-12 shadow-xl border border-green-100">
-              <div className="w-16 h-16 bg-green-600 rounded-2xl flex items-center justify-center mb-6">
-                <Target className="w-8 h-8 text-white" />
-              </div>
-              <h3 className="text-3xl font-bold text-gray-900 mb-4">
-                Our Mission
-              </h3>
-              <p className="text-lg text-gray-700 leading-relaxed">
-                To empower businesses with innovative digital solutions that
-                drive growth, efficiency, and competitive advantage. We&apos;re
-                committed to turning complex challenges into elegant,
-                user-friendly technology that delivers real business value.
-              </p>
-            </div>
-
-            {/* Vision */}
-            <div className="bg-gradient-to-br from-green-50 to-green-50 rounded-3xl p-12 shadow-xl border border-green-100">
-              <div className="w-16 h-16 bg-green-600 rounded-2xl flex items-center justify-center mb-6">
-                <Award className="w-8 h-8 text-white" />
-              </div>
-              <h3 className="text-3xl font-bold text-gray-900 mb-4">
-                Our Vision
-              </h3>
-              <p className="text-lg text-gray-700 leading-relaxed">
-                To be the world&apos;s most trusted digital transformation partner,
-                recognized for our innovation, integrity, and impact. We
-                envision a future where technology seamlessly enhances every
-                aspect of business and life.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Why Choose Us */}
-      <section className="py-24 px-6 bg-white">
-        <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-16">
-            <h2 className="text-5xl font-bold mb-4 text-gray-900">
-              Why Choose Global Tech?
-            </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              We don&apos;t just build software—we build partnerships that drive
-              lasting success
-            </p>
-          </div>
-
-          <div className="grid md:grid-cols-3 gap-8">
-            {[
-              {
-                title: "End-to-End Expertise",
-                description:
-                  "From strategy to deployment, our full-stack team handles every aspect of your digital journey with precision and care.",
-                points: [
-                  "Strategic Planning",
-                  "UI/UX Design",
-                  "Development",
-                  "Deployment & Support",
-                ],
-              },
-              {
-                title: "Proven Track Record",
-                description:
-                  "With 1200+ successful projects across 25+ industries, we have the experience to deliver results that matter.",
-                points: [
-                  "98% Client Retention",
-                  "Award-Winning Solutions",
-                  "Industry Recognition",
-                  "Global Reach",
-                ],
-              },
-              {
-                title: "Agile & Transparent",
-                description:
-                  "Stay in control with regular updates, clear communication, and flexible development processes tailored to your needs.",
-                points: [
-                  "Weekly Progress Reports",
-                  "Dedicated Project Manager",
-                  "Flexible Engagement Models",
-                  "Complete Transparency",
-                ],
-              },
-            ].map((reason, idx) => (
-              <div
-                key={idx}
-                className="bg-gradient-to-br from-gray-50 to-green-50 rounded-2xl p-8 border border-gray-200 hover:shadow-2xl hover:scale-105 transition-all duration-300"
-              >
-                <h3 className="text-2xl font-bold text-gray-900 mb-4">
-                  {reason.title}
-                </h3>
-                <p className="text-gray-600 mb-6 leading-relaxed">
-                  {reason.description}
-                </p>
-                <ul className="space-y-3">
-                  {reason.points.map((point, pidx) => (
-                    <li key={pidx} className="flex items-center gap-3">
-                      <CheckCircle className="w-5 h-5 text-green-600 flex-shrink-0" />
-                      <span className="text-gray-700">{point}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Team Section */}
-      <section className="py-24 px-6 bg-gradient-to-br from-slate-50 to-green-50">
-  <div className="max-w-6xl mx-auto">
-    
-    {/* Header */}
-    <div className="text-center mb-16">
-      <h2 className="text-5xl font-bold mb-4 text-gray-900">
-        Meet The Founder
-      </h2>
-      <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-        The vision and leadership behind Global Tech
-      </p>
-    </div>
-
-    {/* Owner Card */}
-    <div className="flex justify-center">
-      {[
-        {
-          name: "Sanjay Rauniyar",
-          role: "Managing Director",
-          image: "/myimage.png",
-          bio: "Driven by innovation, technology, and a mission to build scalable digital solutions that empower businesses."
-        }
-      ].map((owner, idx) => (
-        <div
-          key={idx}
-          className="group bg-white rounded-3xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 max-w-md"
-        >
-          <div className="aspect-square bg-gradient-to-br from-green-100 to-green-100 overflow-hidden">
-            <img
-              src={owner.image}
-              alt={owner.name}
-              className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
-            />
-          </div>
-
-          <div className="p-8 text-center">
-            <h3 className="text-2xl font-bold text-gray-900 mb-1">
-              {owner.name}
-            </h3>
-            <p className="text-green-600 font-semibold mb-4">
-              {owner.role}
-            </p>
-            <p className="text-gray-600 leading-relaxed">
-              {owner.bio}
-            </p>
-          </div>
-        </div>
-      ))}
-    </div>
-
-  </div>
-</section>
-
-
-      {/* Testimonial */}
-      <section className="py-24 px-6 bg-gradient-to-r from-gray-800 to-green-900">
-        <div className="max-w-5xl mx-auto text-center text-white">
-          <Quote className="w-16 h-16 mx-auto mb-8 opacity-50" />
-          <blockquote className="text-3xl md:text-4xl font-bold mb-8 leading-relaxed">
-            &quot;Global Tech transformed our digital presence completely. Their
-            expertise, professionalism, and commitment to our success exceeded
-            all expectations.&quot;
-          </blockquote>
-          <div className="flex items-center justify-center gap-4">
-            <div className="w-16 h-16 bg-white/20 rounded-full overflow-hidden">
-              <img
-                src="/myimage.png"
-                alt="Client"
-                className="w-full h-full object-cover"
-              />
-            </div>
-            <div className="text-left">
-              <div className="font-bold text-lg">Sanjay Rauniyar</div>
-              <div className="text-green-100"></div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* CTA Section */}
-      <section className="py-24 px-6 bg-white">
+      {/* Bottom CTA */}
+      <section className="py-20 px-6 bg-white">
         <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-5xl font-bold mb-6 text-gray-900">
-            Ready to Build Something Amazing?
+          <h2 className="text-3xl sm:text-4xl font-bold text-slate-900">
+            Ready to Partner with GlobalTech?
           </h2>
-          <p className="text-xl text-gray-600 mb-8 leading-relaxed">
-            Let&apos;s discuss how we can help transform your digital vision into
-            reality. Get a free consultation with our experts.
+          <p className="mt-3 text-sm sm:text-base text-slate-600 max-w-2xl mx-auto leading-relaxed">
+            Schedule a visit to our Teku office or have our technical sales team demonstrate OMS at your facility.
           </p>
-          <div className="flex flex-wrap items-center justify-center gap-4">
+          <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
             <Link
               href="/contact"
-              className="group px-8 py-4 bg-gradient-to-r from-green-600 to-green-600 text-white font-semibold rounded-xl hover:shadow-2xl hover:shadow-green-500/50 transition-all duration-300 hover:scale-105 flex items-center gap-2"
+              className="inline-flex items-center gap-2 rounded-xl bg-[#01403e] px-6 py-3.5 text-xs sm:text-sm font-semibold text-white shadow-md hover:bg-[#075351] transition"
             >
-              Get Started Today
-              <ArrowRight
-                size={20}
-                className="group-hover:translate-x-1 transition-transform"
-              />
+              <span>Get in Touch with Our Team</span>
+              <ArrowRight size={15} />
             </Link>
-            <Link
-              href="/case-studies"
-              className="px-8 py-4 bg-white text-gray-900 font-semibold rounded-xl border-2 border-gray-200 hover:border-green-600 hover:shadow-xl transition-all duration-300"
+            <a
+              href="tel:+97715329949"
+              className="rounded-xl border border-slate-300 px-6 py-3.5 text-xs sm:text-sm font-semibold text-slate-700 hover:bg-slate-50 transition"
             >
-              View Our Work
-            </Link>
+              Call 01-5329949
+            </a>
           </div>
         </div>
       </section>
@@ -507,85 +366,33 @@ export default function AboutPage() {
       {/* Video Modal */}
       {isVideoOpen && (
         <div
-          className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 backdrop-blur-sm p-6"
+          className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 p-4"
           onClick={() => setIsVideoOpen(false)}
         >
           <div
-            className="relative w-full max-w-5xl aspect-video bg-gray-900 rounded-2xl overflow-hidden shadow-2xl"
+            className="relative w-full max-w-4xl overflow-hidden rounded-2xl bg-black shadow-2xl"
             onClick={(e) => e.stopPropagation()}
           >
             <button
+              type="button"
               onClick={() => setIsVideoOpen(false)}
-              className="absolute top-4 right-4 z-10 w-10 h-10 bg-white/10 hover:bg-white/20 rounded-full flex items-center justify-center text-white transition-colors"
+              className="absolute right-3 top-3 z-10 flex h-9 w-9 items-center justify-center rounded-full bg-black/70 text-white hover:bg-red-600 transition"
+              aria-label="Close video"
             >
               ✕
             </button>
-            {/* Replace with actual video */}
-            <div className="w-full h-full flex items-center justify-center text-white">
-              <Play size={64} />
+            <div className="aspect-video w-full">
+              <iframe
+                className="h-full w-full"
+                src="https://www.youtube.com/embed/gRF6DdP85IY?autoplay=1&rel=0"
+                title="GlobalTech OMS Video Tour"
+                allow="autoplay; encrypted-media; picture-in-picture; fullscreen"
+                allowFullScreen
+              />
             </div>
           </div>
         </div>
       )}
-
-      <style jsx>{`
-        @keyframes float {
-          0%,
-          100% {
-            transform: translateY(0) scale(1);
-          }
-          50% {
-            transform: translateY(-20px) scale(1.05);
-          }
-        }
-        @keyframes float-delayed {
-          0%,
-          100% {
-            transform: translateY(0) scale(1);
-          }
-          50% {
-            transform: translateY(20px) scale(0.95);
-          }
-        }
-        @keyframes fade-in {
-          from {
-            opacity: 0;
-            transform: translateY(20px);
-          }
-          to {
-            opacity: 1;
-            transform: translateY(0);
-          }
-        }
-        @keyframes slide-up {
-          from {
-            opacity: 0;
-            transform: translateY(40px);
-          }
-          to {
-            opacity: 1;
-            transform: translateY(0);
-          }
-        }
-        .animate-float {
-          animation: float 6s ease-in-out infinite;
-        }
-        .animate-float-delayed {
-          animation: float-delayed 8s ease-in-out infinite;
-        }
-        .animate-fade-in {
-          animation: fade-in 0.8s ease-out;
-        }
-        .animate-fade-in-delayed {
-          animation: fade-in 1s ease-out 0.2s backwards;
-        }
-        .animate-fade-in-delayed-2 {
-          animation: fade-in 1s ease-out 0.4s backwards;
-        }
-        .animate-slide-up {
-          animation: slide-up 1s ease-out;
-        }
-      `}</style>
     </div>
   );
 }
