@@ -70,14 +70,14 @@ export default function ClientsPage() {
   return (
     <main className="bg-white text-gray-900">
       {/* Hero */}
-      <section className="relative overflow-hidden bg-gradient-to-br from-slate-900 via-slate-800 to-blue-900 text-white">
+      <section className="relative overflow-hidden bg-gradient-to-br from-slate-900 via-slate-800 to-green-900 text-white">
         <div className="mx-auto max-w-7xl px-6 py-24 text-center md:py-32">
           <span className="inline-block rounded-full border border-white/20 bg-white/10 px-4 py-1 text-sm tracking-wide">
             Our Clients
           </span>
           <h1 className="mt-6 text-4xl font-bold leading-tight md:text-6xl">
             Trusted by businesses
-            <span className="block text-blue-400">that move the world forward</span>
+            <span className="block text-green-400">that move the world forward</span>
           </h1>
           <p className="mx-auto mt-6 max-w-2xl text-lg text-slate-300">
             We partner with organizations of every size to build reliable,
@@ -91,7 +91,7 @@ export default function ClientsPage() {
         <div className="grid grid-cols-2 gap-4 rounded-2xl bg-white p-6 shadow-xl ring-1 ring-gray-100 md:grid-cols-4 md:p-8">
           {stats.map((s) => (
             <div key={s.label} className="text-center">
-              <p className="text-3xl font-bold text-blue-600 md:text-4xl">
+              <p className="text-3xl font-bold text-green-600 md:text-4xl">
                 {s.value}
               </p>
               <p className="mt-1 text-sm text-gray-500">{s.label}</p>
@@ -114,9 +114,9 @@ export default function ClientsPage() {
           {clients.map((c) => (
             <div
               key={c.name}
-              className="group rounded-2xl border border-gray-200 bg-white p-6 text-center transition hover:-translate-y-1 hover:border-blue-500 hover:shadow-lg"
+              className="group rounded-2xl border border-gray-200 bg-white p-6 text-center transition hover:-translate-y-1 hover:border-green-500 hover:shadow-lg"
             >
-              <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-blue-50 text-xl font-bold text-blue-600 transition group-hover:bg-blue-600 group-hover:text-white">
+              <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-green-50 text-xl font-bold text-green-600 transition group-hover:bg-green-600 group-hover:text-white">
                 {getInitials(c.name)}
               </div>
               <h3 className="mt-4 text-lg font-semibold">{c.name}</h3>
@@ -155,13 +155,13 @@ export default function ClientsPage() {
               className="flex flex-col justify-between rounded-2xl border border-gray-200 bg-white p-8 shadow-sm"
             >
               <blockquote className="text-gray-700">
-                <span className="mb-2 block text-4xl leading-none text-blue-500">
+                <span className="mb-2 block text-4xl leading-none text-green-500">
                   &ldquo;
                 </span>
                 {t.quote}
               </blockquote>
               <figcaption className="mt-6 flex items-center gap-3">
-                <div className="flex h-10 w-10 items-center justify-center rounded-full bg-blue-600 text-sm font-semibold text-white">
+                <div className="flex h-10 w-10 items-center justify-center rounded-full bg-green-600 text-sm font-semibold text-white">
                   {getInitials(t.name)}
                 </div>
                 <div>
@@ -180,13 +180,13 @@ export default function ClientsPage() {
           <h2 className="text-3xl font-bold md:text-4xl">
             Ready to become our next success story?
           </h2>
-          <p className="mx-auto mt-4 max-w-xl text-blue-100">
+          <p className="mx-auto mt-4 max-w-xl text-green-100">
             Tell us about your project and let&apos;s build something great
             together.
           </p>
           <Link
             href="/contact"
-            className="mt-8 inline-block rounded-full bg-white px-8 py-3 font-semibold text-blue-700 transition hover:bg-blue-50"
+            className="mt-8 inline-block rounded-full bg-white px-8 py-3 font-semibold text-green-700 transition hover:bg-green-50"
           >
             Get in Touch
           </Link>

@@ -6,16 +6,16 @@ export default function Footer() {
 
   const footerLinks = {
     product: [
-      { name: 'Accounting', href: '#accounting' },
-      { name: 'Inventory', href: '#inventory' },
-      { name: 'Invoicing', href: '#invoicing' },
-      { name: 'Point of Sales', href: '#pos' },
-      { name: 'Documents', href: '#documents' },
-      { name: 'Reporting', href: '#reporting' }
+      { name: 'Accounting', href: '/products' },
+      { name: 'Inventory', href: '/products' },
+      { name: 'Invoicing', href: '/products' },
+      { name: 'Point of Sales', href: '/products' },
+      { name: 'Documents', href: '/products' },
+      { name: 'Reporting', href: '/products' }
     ],
     company: [
-      { name: 'About Us', href: '#about' },
-      { name: 'Careers', href: '#careers' },
+      { name: 'About Us', href: '/about' },
+      { name: 'Careers', href: '/careers' },
       { name: 'Blog', href: '#blog' },
       { name: 'Press', href: '#press' },
       { name: 'Partners', href: '#partners' }
@@ -68,13 +68,13 @@ export default function Footer() {
             <div className="space-y-3">
               <div className="flex items-center gap-3">
                 <Mail className="w-5 h-5 text-green-500" />
-                <a href="mailto:info@globaltech.com.np" className="hover:text-white transition-colors">
-                  info@globaltech.com.np
+                <a href="mailto:info@globaltechnepal.com" className="hover:text-white transition-colors">
+                  info@globaltechnepal.com
                 </a>
               </div>
               <div className="flex items-center gap-3">
                 <Phone className="w-5 h-5 text-green-500" />
-                <a href="tel:+1234567890" className="hover:text-white transition-colors">
+                <a href="tel:+97715329949" className="hover:text-white transition-colors">
                   01-5329949 | 5329952 | 5329982
                 </a>
               </div>

@@ -74,7 +74,7 @@ export default function ClientFeedback() {
             What Our <span className="text-green-600">Clients Say</span>
           </h2>
           <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-            Don't just take our word for it. Here's what our satisfied clients have to say about Global Tech.
+            Don&apos;t just take our word for it. Here&apos;s what our satisfied clients have to say about Global Tech.
           </p>
         </div>
 

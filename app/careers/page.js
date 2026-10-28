@@ -159,14 +159,14 @@ export default function CareersPage() {
   return (
     <main className="bg-white text-gray-900">
       {/* Hero */}
-      <section className="bg-gradient-to-br from-slate-900 via-slate-800 to-blue-900 text-white">
+      <section className="bg-gradient-to-br from-slate-900 via-slate-800 to-green-900 text-white">
         <div className="mx-auto max-w-7xl px-6 py-24 text-center md:py-32">
           <span className="inline-block rounded-full border border-white/20 bg-white/10 px-4 py-1 text-sm tracking-wide">
             Careers
           </span>
           <h1 className="mt-6 text-4xl font-bold leading-tight md:text-6xl">
             Build your career
-            <span className="block text-blue-400">with Global Tech</span>
+            <span className="block text-green-400">with Global Tech</span>
           </h1>
           <p className="mx-auto mt-6 max-w-2xl text-lg text-slate-300">
             Join a passionate team creating technology that matters. We are
@@ -174,7 +174,7 @@ export default function CareersPage() {
           </p>
           <a
             href="#openings"
-            className="mt-10 inline-block rounded-full bg-blue-500 px-8 py-3 font-semibold text-white transition hover:bg-blue-400"
+            className="mt-10 inline-block rounded-full bg-green-500 px-8 py-3 font-semibold text-white transition hover:bg-green-400"
           >
             View Open Positions
           </a>
@@ -195,7 +195,7 @@ export default function CareersPage() {
               key={p.title}
               className="rounded-2xl border border-gray-200 bg-white p-8 transition hover:-translate-y-1 hover:shadow-lg"
             >
-              <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-blue-50 text-2xl">
+              <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-green-50 text-2xl">
                 {p.icon}
               </div>
               <h3 className="mt-5 text-lg font-semibold">{p.title}</h3>
@@ -223,8 +223,8 @@ export default function CareersPage() {
                 onClick={() => setFilter(d)}
                 className={`rounded-full px-5 py-2 text-sm font-medium transition ${
                   filter === d
-                    ? "bg-blue-600 text-white shadow"
-                    : "border border-gray-200 bg-white text-gray-700 hover:border-blue-500"
+                    ? "bg-green-600 text-white shadow"
+                    : "border border-gray-200 bg-white text-gray-700 hover:border-green-500"
                 }`}
               >
                 {d}
@@ -249,7 +249,7 @@ export default function CareersPage() {
                     <div>
                       <h3 className="text-lg font-semibold">{job.title}</h3>
                       <div className="mt-2 flex flex-wrap gap-2 text-xs">
-                        <span className="rounded-full bg-blue-50 px-3 py-1 font-medium text-blue-700">
+                        <span className="rounded-full bg-green-50 px-3 py-1 font-medium text-green-700">
                           {job.department}
                         </span>
                         <span className="rounded-full bg-gray-100 px-3 py-1 text-gray-700">
@@ -264,7 +264,7 @@ export default function CareersPage() {
                       </div>
                     </div>
                     <span
-                      className={`text-2xl text-blue-600 transition-transform ${
+                      className={`text-2xl text-green-600 transition-transform ${
                         isOpen ? "rotate-45" : ""
                       }`}
                     >
@@ -285,7 +285,7 @@ export default function CareersPage() {
                       </ul>
                       <a
                         href={applyLink(job.title)}
-                        className="mt-6 inline-block rounded-full bg-blue-600 px-6 py-2.5 text-sm font-semibold text-white transition hover:bg-blue-700"
+                        className="mt-6 inline-block rounded-full bg-green-600 px-6 py-2.5 text-sm font-semibold text-white transition hover:bg-green-700"
                       >
                         Apply Now
                       </a>
@@ -312,7 +312,7 @@ export default function CareersPage() {
         <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
           {process.map((s) => (
             <div key={s.step} className="rounded-2xl border border-gray-200 p-6">
-              <span className="text-3xl font-bold text-blue-500">{s.step}</span>
+              <span className="text-3xl font-bold text-green-500">{s.step}</span>
               <h3 className="mt-3 text-lg font-semibold">{s.title}</h3>
               <p className="mt-2 text-sm text-gray-600">{s.text}</p>
             </div>
@@ -326,14 +326,14 @@ export default function CareersPage() {
           <h2 className="text-3xl font-bold md:text-4xl">
             Don&apos;t see a role that fits?
           </h2>
-          <p className="mx-auto mt-4 max-w-xl text-blue-100">
+          <p className="mx-auto mt-4 max-w-xl text-green-100">
             We are always happy to meet talented people. Send us your CV and we
             will contact you when a suitable position opens.
           </p>
           <div className="mt-8 flex flex-wrap justify-center gap-4">
             <a
               href={`mailto:${CAREERS_EMAIL}?subject=General%20Application`}
-              className="rounded-full bg-white px-8 py-3 font-semibold text-blue-700 transition hover:bg-blue-50"
+              className="rounded-full bg-white px-8 py-3 font-semibold text-green-700 transition hover:bg-green-50"
             >
               Send Your CV
             </a>
