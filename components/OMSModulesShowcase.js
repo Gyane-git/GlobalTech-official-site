@@ -151,10 +151,10 @@ export default function OMSModulesShowcase() {
   const current = modules.find((m) => m.id === activeModule) || modules[0];
 
   return (
-    <section className="bg-white py-16 sm:py-24 px-4 sm:px-6 lg:px-8 border-b border-slate-200">
+    <section className="bg-white py-6 sm:py-8 px-4 sm:px-6 lg:px-8 border-b border-slate-200">
       <div className="max-w-7xl mx-auto">
         {/* Section Heading */}
-        <div className="text-center max-w-3xl mx-auto mb-14">
+        <div className="text-center max-w-3xl mx-auto mb-10">
           <span className="inline-flex items-center gap-1.5 rounded-full bg-emerald-100/70 px-3.5 py-1 text-xs font-semibold text-emerald-900 mb-3">
             <Layers size={13} /> Modular ERP Architecture
           </span>
@@ -192,7 +192,7 @@ export default function OMSModulesShowcase() {
         </div>
 
         {/* Selected Module Detail View */}
-        <div className="rounded-3xl border border-slate-200 bg-gradient-to-br from-emerald-50/40 via-white to-slate-50 p-6 sm:p-10 shadow-sm">
+        <div className="rounded-3xl border border-slate-200 bg-gradient-to-br from-emerald-50/40 via-white to-slate-50 p-6 sm:p-6 shadow-sm">
           <div className="grid lg:grid-cols-12 gap-8 items-center">
             <div className="lg:col-span-8">
               <span className="inline-block rounded-full bg-emerald-100 px-3 py-0.5 text-xs font-bold text-emerald-900 mb-2">
@@ -257,7 +257,7 @@ export default function OMSModulesShowcase() {
         </div>
 
         {/* Why Choose GlobalTech OMS - 4 Column Feature Grid */}
-        <div className="mt-16 pt-12 border-t border-slate-200">
+        <div className="mt-10 pt-8 border-t border-slate-200">
           <div className="text-center max-w-2xl mx-auto mb-10">
             <span className="text-xs font-bold uppercase tracking-wider text-emerald-700">
               The GlobalTech Advantage

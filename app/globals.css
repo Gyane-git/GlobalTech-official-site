@@ -33,3 +33,13 @@ iframe[id="zp9bthr33fks1764826754896"] {
   width: 300px !important;
   max-height: 380px !important;
 }
+
+/* Continuous client slider */
+.client-slider .swiper-wrapper {
+  transition-timing-function: linear !important;
+}
+
+/* Pause movement when hovering over the slider */
+.client-slider:hover .swiper-wrapper {
+  transition-play-state: paused;
+}

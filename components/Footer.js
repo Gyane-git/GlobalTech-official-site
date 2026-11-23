@@ -52,18 +52,25 @@ export default function Footer() {
       { name: "Our Clients & Partners", href: "/clients" },
       { name: "Careers (We're Hiring)", href: "/careers" },
       { name: "Contact & Head Office", href: "/contact" },
-      { name: "OMS Portal Login", href: "http://omslite.globaltech.com.np/Account/Login" },
+      {
+        name: "OMS Portal Login",
+        href: "http://omslite.globaltech.com.np/Account/Login",
+      },
     ],
   };
 
   return (
     <footer className="bg-[#01403e] text-slate-300 border-t border-emerald-950">
       {/* Upper Main Footer Content */}
-      <div className="max-w-7xl mx-auto px-5 sm:px-8 lg:px-10 py-16">
+      <div className="max-w-7xl mx-auto px-5 sm:px-8 lg:px-10 py-8">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10">
           {/* Brand & Contact Info Column */}
           <div className="lg:col-span-4 space-y-5">
-            <Link href="/" aria-label="GlobalTech home" className="inline-block">
+            <Link
+              href="/"
+              aria-label="GlobalTech home"
+              className="inline-block"
+            >
               <div className="bg-white/10 p-2.5 rounded-2xl inline-block backdrop-blur-md">
                 <Image
                   src="/logo.png"
@@ -76,7 +83,9 @@ export default function Footer() {
             </Link>
 
             <p className="text-slate-300 text-xs sm:text-sm leading-relaxed max-w-sm">
-              Nepal&apos;s trusted software and technology partner for over 15 years. Providing IRD-certified accounting, enterprise ERP, web development, and cloud hosting solutions.
+              Nepal&apos;s trusted software and technology partner for over 15
+              years. Providing IRD-certified accounting, enterprise ERP, web
+              development, and cloud hosting solutions.
             </p>
 
             {/* Official Certification Badge */}
@@ -85,7 +94,8 @@ export default function Footer() {
                 <ShieldCheck size={16} /> Certified by IRD Nepal
               </div>
               <p className="mt-1 text-[11px] text-emerald-200/80 leading-normal">
-                Approved for electronic billing, CBMS data sync, and VAT Annexure 13 reporting.
+                Approved for electronic billing, CBMS data sync, and VAT
+                Annexure 13 reporting.
               </p>
             </div>
 
@@ -93,17 +103,25 @@ export default function Footer() {
             <div className="space-y-2.5 text-xs text-slate-300 pt-2">
               <div className="flex items-start gap-2.5">
                 <MapPin className="w-4 h-4 text-lime-400 shrink-0 mt-0.5" />
-                <span>Globaltech Solution Pvt. Ltd., Teku, Kathmandu, Nepal</span>
+                <span>
+                  Globaltech Solution Pvt. Ltd., Teku, Kathmandu, Nepal
+                </span>
               </div>
               <div className="flex items-center gap-2.5">
                 <Phone className="w-4 h-4 text-lime-400 shrink-0" />
-                <a href="tel:+97715329949" className="hover:text-white transition">
+                <a
+                  href="tel:+97715329949"
+                  className="hover:text-white transition"
+                >
                   01-5329949 | 01-5329952 | 01-5329982
                 </a>
               </div>
               <div className="flex items-center gap-2.5">
                 <Mail className="w-4 h-4 text-lime-400 shrink-0" />
-                <a href="mailto:info@globaltechnepal.com" className="hover:text-white transition">
+                <a
+                  href="mailto:info@globaltechnepal.com"
+                  className="hover:text-white transition"
+                >
                   info@globaltechnepal.com
                 </a>
               </div>
@@ -176,20 +194,22 @@ export default function Footer() {
         </div>
 
         {/* Newsletter Section */}
-        <div className="mt-14 pt-8 border-t border-emerald-900/80 flex flex-col md:flex-row md:items-center md:justify-between gap-6">
+        <div className="mt-6 pt-4 border-t border-emerald-900/80 flex flex-col md:flex-row md:items-center md:justify-between gap-6">
           <div className="max-w-md">
             <h4 className="text-white font-bold text-base">
               Subscribe to GlobalTech Business Insights
             </h4>
             <p className="text-xs text-slate-300 mt-1">
-              Receive notifications about Nepal tax updates, IRD e-billing changes, and ERP best practices.
+              Receive notifications about Nepal tax updates, IRD e-billing
+              changes, and ERP best practices.
             </p>
           </div>
 
           <div className="w-full md:max-w-md">
             {subscribed ? (
               <div className="flex items-center gap-2 rounded-xl bg-emerald-800/50 p-3 text-xs font-semibold text-lime-300 border border-emerald-700">
-                <CheckCircle2 size={16} /> Thank you for subscribing! We&apos;ll keep you posted.
+                <CheckCircle2 size={16} /> Thank you for subscribing! We&apos;ll
+                keep you posted.
               </div>
             ) : (
               <form onSubmit={handleSubscribe} className="flex gap-2">
@@ -217,7 +237,9 @@ export default function Footer() {
       <div className="border-t border-emerald-950 bg-[#00302e]">
         <div className="max-w-7xl mx-auto px-5 sm:px-8 lg:px-10 py-6 flex flex-col md:flex-row items-center justify-between gap-4">
           <div className="text-xs text-slate-400 text-center md:text-left">
-            <p>© {currentYear} Globaltech Solution Pvt. Ltd. All rights reserved.</p>
+            <p>
+              © {currentYear} Globaltech Solution Pvt. Ltd. All rights reserved.
+            </p>
             <p className="text-[11px] text-slate-500 mt-0.5">
               Registered in Nepal • IRD Certified Accounting & ERP Solutions
             </p>

@@ -1,13 +1,22 @@
 "use client";
 
 import { useState, useMemo } from "react";
-import { Plus, Minus, Search, HelpCircle, MessageCircle, Phone, ShieldCheck } from "lucide-react";
+import {
+  Plus,
+  Minus,
+  Search,
+  HelpCircle,
+  MessageCircle,
+  Phone,
+  ShieldCheck,
+} from "lucide-react";
 
 const officialFaqs = [
   {
     id: 1,
     category: "IRD & Compliance",
-    title: "Is GlobalTech OMS certified and approved by the Inland Revenue Department (IRD) Nepal?",
+    title:
+      "Is GlobalTech OMS certified and approved by the Inland Revenue Department (IRD) Nepal?",
     description:
       "Yes, absolutely. GlobalTech OMS is officially certified by the Inland Revenue Department (IRD) of Nepal for Electronic Billing and CBMS (Central Billing Monitoring System) integration. Our software fully complies with Nepal's Value Added Tax (VAT) rules, generate Annexure 13 sales and purchase registers, VAT returns, and prints IRD-compliant tax invoices with QR codes.",
   },
@@ -21,7 +30,8 @@ const officialFaqs = [
   {
     id: 3,
     category: "Data & Security",
-    title: "Can we migrate our existing financial records from Tally, Swastik, or Excel?",
+    title:
+      "Can we migrate our existing financial records from Tally, Swastik, or Excel?",
     description:
       "Yes. Our technical team in Kathmandu provides end-to-end data migration services. We assist you in importing your Chart of Accounts, customer and vendor master lists, opening stock balances, item codes, and historical ledger balances from Tally, Excel sheets, or existing legacy accounting programs safely.",
   },
@@ -35,14 +45,16 @@ const officialFaqs = [
   {
     id: 5,
     category: "Support & Training",
-    title: "Do you provide on-site implementation and team training in Kathmandu and outside the valley?",
+    title:
+      "Do you provide on-site implementation and team training in Kathmandu and outside the valley?",
     description:
       "Yes. We have dedicated field implementation engineers in Kathmandu who visit your premises for software installation, printer/barcode configuration, and hands-on staff training. For locations outside Kathmandu (Pokhara, Biratnagar, Butwal, Birgunj, Nepalgunj, etc.), we offer both dedicated on-site deployment visits and interactive remote sessions via AnyDesk/TeamViewer.",
   },
   {
     id: 6,
     category: "Modules & Features",
-    title: "Can GlobalTech OMS handle multiple branch offices and remote warehouses (godowns)?",
+    title:
+      "Can GlobalTech OMS handle multiple branch offices and remote warehouses (godowns)?",
     description:
       "Yes. GlobalTech OMS is built for multi-branch and multi-warehouse operations. Headquarters can view consolidated financial statements, real-time stock levels across all branches, transfer inventory between godowns with transit tracking, and enforce role-based access permissions for branch managers.",
   },
@@ -70,7 +82,8 @@ const officialFaqs = [
   {
     id: 10,
     category: "Support & Training",
-    title: "How responsive is your customer support if we encounter an issue during busy hours?",
+    title:
+      "How responsive is your customer support if we encounter an issue during busy hours?",
     description:
       "Our support desk operates Sunday through Friday from 9:30 AM to 6:00 PM NST via landlines (01-5329949, 5329952) and WhatsApp. For mission-critical healthcare, hospital, and retail clients, we provide 24/7 on-call emergency technical assistance.",
   },
@@ -107,10 +120,10 @@ export default function FAQ() {
   };
 
   return (
-    <section className="bg-slate-50/70 py-16 sm:py-20 px-4 sm:px-6 lg:px-8 border-t border-slate-200/70">
+    <section className="bg-slate-50/70 py-8 sm:py-10 px-4 sm:px-6 lg:px-8 border-t border-slate-200/70">
       <div className="max-w-4xl mx-auto">
         {/* Section Header */}
-        <div className="text-center mb-10">
+        <div className="text-center mb-6">
           <span className="inline-flex items-center gap-1.5 rounded-full bg-emerald-100/70 px-3.5 py-1 text-xs font-semibold text-emerald-900 mb-3">
             <HelpCircle size={14} /> Clear Answers & Transparency
           </span>
@@ -118,12 +131,13 @@ export default function FAQ() {
             Frequently Asked <span className="text-[#01403e]">Questions</span>
           </h2>
           <p className="mt-3 text-base text-slate-600 max-w-2xl mx-auto">
-            Everything you need to know about GlobalTech OMS, IRD e-billing certification, data migration, and on-site support in Nepal.
+            Everything you need to know about GlobalTech OMS, IRD e-billing
+            certification, data migration, and on-site support in Nepal.
           </p>
         </div>
 
         {/* Search & Category Filter */}
-        <div className="mb-8 space-y-4">
+        <div className="mb-8 space-y-5">
           <div className="relative max-w-md mx-auto">
             <Search
               size={16}
@@ -241,7 +255,8 @@ export default function FAQ() {
               Still have questions about OMS?
             </h4>
             <p className="text-xs text-slate-600 mt-1 max-w-md">
-              Speak directly with an accounting software consultant from our Teku, Kathmandu office.
+              Speak directly with an accounting software consultant from our
+              Teku, Kathmandu office.
             </p>
           </div>
 

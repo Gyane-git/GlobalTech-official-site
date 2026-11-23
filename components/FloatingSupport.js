@@ -1,13 +1,23 @@
 "use client";
 
 import { useState } from "react";
-import { MessageCircle, Phone, X, ChevronUp, Clock, ShieldCheck } from "lucide-react";
+import {
+  MessageCircle,
+  Phone,
+  X,
+  ChevronUp,
+  Clock,
+  ShieldCheck,
+} from "lucide-react";
 
 export default function FloatingSupport() {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <aside aria-label="Quick contact & WhatsApp support" className="fixed bottom-6 right-6 z-40 flex flex-col items-end print:hidden">
+    <aside
+      aria-label="Quick contact & WhatsApp support"
+      className="fixed animate-bounce bottom-16 right-6 z-40 flex flex-col items-end print:hidden"
+    >
       {/* Expanded Popup Menu */}
       {isOpen && (
         <div
@@ -25,7 +35,9 @@ export default function FloatingSupport() {
                 <h4 className="text-xs font-bold uppercase tracking-wider text-slate-800">
                   GlobalTech Support
                 </h4>
-                <p className="text-[10px] text-slate-500">Teku, Kathmandu Office</p>
+                <p className="text-[10px] text-slate-500">
+                  Teku, Kathmandu Office
+                </p>
               </div>
             </div>
             <button
@@ -52,7 +64,9 @@ export default function FloatingSupport() {
               <span className="flex items-center gap-2">
                 <MessageCircle size={16} /> WhatsApp Demo & Sales
               </span>
-              <span className="rounded bg-emerald-800/40 px-1.5 py-0.5 text-[10px]">Instant</span>
+              <span className="rounded bg-emerald-800/40 px-1.5 py-0.5 text-[10px]">
+                Instant
+              </span>
             </a>
 
             {/* Direct Office Phone Call */}
@@ -63,7 +77,9 @@ export default function FloatingSupport() {
               <span className="flex items-center gap-2">
                 <Phone size={15} className="text-emerald-700" /> Call 01-5329949
               </span>
-              <span className="text-[10px] font-normal text-slate-500">Sun-Fri</span>
+              <span className="text-[10px] font-normal text-slate-500">
+                Sun-Fri
+              </span>
             </a>
 
             {/* Mobile Helpline */}
@@ -72,9 +88,12 @@ export default function FloatingSupport() {
               className="flex items-center justify-between rounded-xl border border-slate-200 bg-slate-50 px-3.5 py-2.5 text-xs font-semibold text-slate-700 hover:bg-slate-100 transition"
             >
               <span className="flex items-center gap-2">
-                <Phone size={15} className="text-emerald-700" /> Mobile: 9851069643
+                <Phone size={15} className="text-emerald-700" /> Mobile:
+                9851069643
               </span>
-              <span className="text-[10px] font-normal text-slate-500">Marketing</span>
+              <span className="text-[10px] font-normal text-slate-500">
+                Marketing
+              </span>
             </a>
           </div>
 
@@ -99,7 +118,10 @@ export default function FloatingSupport() {
           <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-lime-400 opacity-75"></span>
           <span className="relative inline-flex h-3 w-3 rounded-full bg-lime-400"></span>
         </span>
-        <MessageCircle size={20} className="transition-transform group-hover:rotate-12" />
+        <MessageCircle
+          size={20}
+          className="transition-transform group-hover:rotate-12"
+        />
         <span className="hidden text-xs font-bold uppercase tracking-wider sm:inline">
           {isOpen ? "Close" : "Need Help / Demo?"}
         </span>

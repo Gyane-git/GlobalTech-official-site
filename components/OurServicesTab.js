@@ -110,10 +110,10 @@ export default function TabBar() {
   const content = tabContent[activeTab];
 
   return (
-    <section className="bg-gradient-to-b from-white via-slate-50/70 to-white py-16 sm:py-24 px-4 sm:px-6 lg:px-8 border-b border-slate-200/70">
+    <section className="bg-gradient-to-b from-white via-slate-50/70 to-white py-6 sm:py-8 px-4 sm:px-6 lg:px-8 border-b border-slate-200/70">
       <div className="max-w-7xl mx-auto">
         {/* Section Heading */}
-        <div className="text-center max-w-3xl mx-auto mb-12">
+        <div className="text-center max-w-3xl mx-auto mb-8">
           <span className="inline-flex items-center gap-1.5 rounded-full bg-emerald-100/80 px-3.5 py-1 text-xs font-semibold text-emerald-900 mb-3">
             <Layers size={13} /> Complete Technology Suite
           </span>
@@ -122,12 +122,13 @@ export default function TabBar() {
             <span className="text-[#01403e]">Operate and Scale</span>
           </h2>
           <p className="mt-3 text-base text-slate-600">
-            Explore our core software modules, enterprise ERP, web development, and cloud hosting solutions tailored for organizations across Nepal.
+            Explore our core software modules, enterprise ERP, web development,
+            and cloud hosting solutions tailored for organizations across Nepal.
           </p>
         </div>
 
         {/* Tab Selection Bar */}
-        <div className="bg-white rounded-2xl shadow-sm border border-slate-200 p-2 mb-12 max-w-5xl mx-auto">
+        <div className="bg-white rounded-2xl shadow-sm border border-slate-200 p-2 mb-8 max-w-5xl mx-auto">
           <div className="flex flex-wrap items-center justify-center gap-2">
             {tabs.map((tab) => {
               const Icon = tab.icon;
@@ -151,7 +152,7 @@ export default function TabBar() {
         </div>
 
         {/* Tab Content Display Card */}
-        <div className="rounded-3xl border border-slate-200/90 bg-white p-6 sm:p-10 shadow-sm">
+        <div className="rounded-3xl border border-slate-200/90 bg-white p-6 sm:p-6 shadow-sm">
           <div className="grid lg:grid-cols-12 gap-10 items-center">
             {/* Left Column: Descriptive Content */}
             <div className="lg:col-span-7 order-2 lg:order-1">
@@ -169,7 +170,10 @@ export default function TabBar() {
               <div className="mt-6 grid sm:grid-cols-2 gap-3">
                 {content.features.map((feature, index) => (
                   <div key={index} className="flex items-start gap-2.5">
-                    <CheckCircle2 size={16} className="text-emerald-600 shrink-0 mt-0.5" />
+                    <CheckCircle2
+                      size={16}
+                      className="text-emerald-600 shrink-0 mt-0.5"
+                    />
                     <span className="text-xs sm:text-sm text-slate-700 font-medium leading-snug">
                       {feature}
                     </span>

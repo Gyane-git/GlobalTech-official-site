@@ -1,7 +1,13 @@
 "use client";
 
 import { useState } from "react";
-import { ChevronLeft, ChevronRight, Star, Quote, ShieldCheck } from "lucide-react";
+import {
+  ChevronLeft,
+  ChevronRight,
+  Star,
+  Quote,
+  ShieldCheck,
+} from "lucide-react";
 
 export default function ClientFeedback() {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -56,13 +62,13 @@ export default function ClientFeedback() {
 
   const nextSlide = () => {
     setCurrentIndex((prevIndex) =>
-      prevIndex === testimonials.length - 1 ? 0 : prevIndex + 1
+      prevIndex === testimonials.length - 1 ? 0 : prevIndex + 1,
     );
   };
 
   const prevSlide = () => {
     setCurrentIndex((prevIndex) =>
-      prevIndex === 0 ? testimonials.length - 1 : prevIndex - 1
+      prevIndex === 0 ? testimonials.length - 1 : prevIndex - 1,
     );
   };
 
@@ -71,10 +77,10 @@ export default function ClientFeedback() {
   };
 
   return (
-    <section className="bg-gradient-to-b from-white via-slate-50 to-white py-16 sm:py-24 px-4 sm:px-6 lg:px-8 border-b border-slate-200/70">
+    <section className="bg-gradient-to-b from-white via-slate-50 to-white py-8 sm:py-10 px-4 sm:px-6 lg:px-8 border-b border-slate-200/70">
       <div className="max-w-7xl mx-auto">
         {/* Section Heading */}
-        <div className="text-center mb-12">
+        <div className="text-center mb-8">
           <span className="inline-flex items-center gap-1.5 rounded-full bg-emerald-100/70 px-3.5 py-1 text-xs font-semibold text-emerald-900 mb-3">
             <ShieldCheck size={14} /> Proven Track Record
           </span>
@@ -82,7 +88,8 @@ export default function ClientFeedback() {
             What Our <span className="text-[#01403e]">Clients Say</span>
           </h2>
           <p className="mt-3 text-base text-slate-600 max-w-2xl mx-auto">
-            Read real feedback from business leaders, finance directors, and IT managers across Nepal who rely on GlobalTech OMS.
+            Read real feedback from business leaders, finance directors, and IT
+            managers across Nepal who rely on GlobalTech OMS.
           </p>
         </div>
 
@@ -128,7 +135,7 @@ export default function ClientFeedback() {
                       </span>
                     </div>
 
-                    <Quote size={32} className="text-emerald-200 shrink-0" />
+                    <Quote size={28} className="text-emerald-200 shrink-0" />
                   </div>
 
                   {/* Feedback Text */}
@@ -137,7 +144,7 @@ export default function ClientFeedback() {
                   </blockquote>
 
                   {/* Author / Client Profile */}
-                  <div className="mt-8 flex items-center gap-4 border-t border-slate-100 pt-6">
+                  <div className="mt-5 flex items-center gap-4 border-t border-slate-100 pt-4">
                     {/* Initials Avatar */}
                     <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl bg-gradient-to-br from-[#01403e] to-emerald-700 text-lg font-bold text-white shadow-md">
                       {testimonial.name

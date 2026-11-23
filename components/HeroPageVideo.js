@@ -1,17 +1,23 @@
 "use client";
 
 import { useState } from "react";
-import { Play, CheckCircle2, ShieldCheck, Sparkles, ExternalLink } from "lucide-react";
+import {
+  Play,
+  CheckCircle2,
+  ShieldCheck,
+  Sparkles,
+  ExternalLink,
+} from "lucide-react";
 
 export default function YouTubeVideo() {
   const [isPlaying, setIsPlaying] = useState(false);
   const videoId = "gRF6DdP85IY";
 
   return (
-    <section className="bg-slate-50/80 py-16 px-4 sm:px-6 lg:px-8 border-b border-slate-200/70">
+    <section className="bg-slate-50/80 py-10 px-4 sm:px-6 lg:px-8 border-b border-slate-200/70">
       <div className="max-w-7xl mx-auto">
         {/* Trust Badges Bar */}
-        <div className="flex flex-wrap items-center justify-center gap-4 sm:gap-8 mb-12 text-slate-700">
+        <div className="flex flex-wrap items-center justify-center gap-4 sm:gap-8 mb-10 text-slate-700">
           <div className="flex items-center gap-2 text-sm sm:text-base font-semibold text-[#01403e]">
             <CheckCircle2 className="w-5 h-5 text-emerald-600" />
             <span>Designed by Chartered Accountants</span>
@@ -60,7 +66,10 @@ export default function YouTubeVideo() {
             style={{ paddingBottom: "56.25%" }}
           >
             {!isPlaying ? (
-              <div className="absolute inset-0 flex items-center justify-center bg-slate-900 group cursor-pointer" onClick={() => setIsPlaying(true)}>
+              <div
+                className="absolute inset-0 flex items-center justify-center bg-slate-900 group cursor-pointer"
+                onClick={() => setIsPlaying(true)}
+              >
                 <img
                   src={`https://img.youtube.com/vi/${videoId}/maxresdefault.jpg`}
                   alt="GlobalTech OMS Video Tour Preview"
@@ -99,7 +108,9 @@ export default function YouTubeVideo() {
         {/* Descriptive Footer Callout */}
         <div className="text-center mt-8">
           <p className="text-slate-600 text-sm sm:text-base max-w-2xl mx-auto leading-relaxed">
-            See how GlobalTech OMS simplifies day-to-day bookkeeping, reduces checkout queues at retail counters, and keeps your business audit-ready.
+            See how GlobalTech OMS simplifies day-to-day bookkeeping, reduces
+            checkout queues at retail counters, and keeps your business
+            audit-ready.
           </p>
         </div>
       </div>
