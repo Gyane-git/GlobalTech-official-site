@@ -1,5 +1,5 @@
 "use client";
-
+import emailjs from "@emailjs/browser";
 import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
@@ -19,17 +19,55 @@ import {
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
+  // const [newsletterEmail, setNewsletterEmail] = useState("");
+  // const [subscribed, setSubscribed] = useState(false);
+
+  // const handleSubscribe = (e) => {
+  //   e.preventDefault();
+  //   if (newsletterEmail && /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(newsletterEmail)) {
+  //     setSubscribed(true);
+  //     setNewsletterEmail("");
+  //   }
+  // };
+
   const [newsletterEmail, setNewsletterEmail] = useState("");
   const [subscribed, setSubscribed] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [subscriptionError, setSubscriptionError] = useState("");
 
-  const handleSubscribe = (e) => {
+  const handleSubscribe = async (e) => {
     e.preventDefault();
-    if (newsletterEmail && /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(newsletterEmail)) {
+
+    const email = newsletterEmail.trim();
+
+    if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+      setSubscriptionError("Please enter a valid email address.");
+      return;
+    }
+
+    setIsSubmitting(true);
+    setSubscriptionError("");
+
+    try {
+      await emailjs.send(
+        process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID,
+        process.env.NEXT_PUBLIC_EMAILJS_NEWSLETTER_TEMPLATE_ID,
+        {
+          subscriber_email: email,
+          subscription_date: new Date().toLocaleString(),
+        },
+        process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY,
+      );
+
       setSubscribed(true);
       setNewsletterEmail("");
+    } catch (error) {
+      console.error("Newsletter subscription failed:", error);
+      setSubscriptionError("Subscription failed. Please try again later.");
+    } finally {
+      setIsSubmitting(false);
     }
   };
-
   const footerLinks = {
     product: [
       { name: "OMS Cloud Accounting", href: "/products" },
@@ -221,13 +259,23 @@ export default function Footer() {
                   placeholder="Enter your business email"
                   className="flex-1 px-4 py-2.5 bg-emerald-950/60 border border-emerald-800 rounded-xl text-xs text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-lime-400"
                 />
-                <button
+                {/* <button
                   type="submit"
                   className="px-5 py-2.5 bg-lime-400 text-[#01403e] text-xs font-bold rounded-xl hover:bg-lime-300 transition-colors shadow-sm"
                 >
                   Subscribe
+                </button> */}
+                <button
+                  type="submit"
+                  disabled={isSubmitting}
+                  className="px-5 py-2.5 bg-lime-400 text-[#01403e] text-xs font-bold rounded-xl hover:bg-lime-300 transition-colors shadow-sm disabled:opacity-60 disabled:cursor-not-allowed"
+                >
+                  {isSubmitting ? "Subscribing..." : "Subscribe"}
                 </button>
               </form>
+            )}
+            {subscriptionError && (
+              <p className="mt-2 text-xs text-red-300">{subscriptionError}</p>
             )}
           </div>
         </div>
