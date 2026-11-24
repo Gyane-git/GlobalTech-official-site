@@ -64,7 +64,7 @@ export default function AboutPage() {
   return (
     <div className="min-h-screen bg-slate-50 text-slate-900">
       {/* Hero Section */}
-      <section className="relative overflow-hidden bg-[#0a4d4d] text-white pt-28 pb-20 px-6">
+      <section className="relative overflow-hidden bg-[#0a4d4d] text-white pt-16 pb-20 px-6">
         <div
           aria-hidden="true"
           className="pointer-events-none absolute inset-0 opacity-15"
@@ -86,7 +86,7 @@ export default function AboutPage() {
               15+ Years Empowering Nepal&apos;s Business Growth
             </div>
 
-            <h1 className="text-4xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight leading-[1.12]">
+            <h1 className="text-4xl sm:text-6xl lg:text-6xl font-extrabold tracking-tight leading-[1.12]">
               Building Nepal&apos;s Most Trusted{" "}
               <span className="bg-gradient-to-r from-lime-300 via-emerald-200 to-white bg-clip-text text-transparent">
                 Digital Infrastructure
@@ -94,7 +94,9 @@ export default function AboutPage() {
             </h1>
 
             <p className="mt-6 text-base sm:text-xl text-emerald-100/90 leading-relaxed max-w-2xl mx-auto font-normal">
-              From small retail counters to nationwide business conglomerates, GlobalTech provides IRD-certified accounting, enterprise ERP, and reliable cloud solutions.
+              From small retail counters to nationwide business conglomerates,
+              GlobalTech provides IRD-certified accounting, enterprise ERP, and
+              reliable cloud solutions.
             </p>
 
             <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
@@ -140,7 +142,7 @@ export default function AboutPage() {
       </section>
 
       {/* Story Section */}
-      <section className="py-20 px-6 bg-white border-b border-slate-200">
+      <section className="py-10 px-6 bg-white border-b border-slate-200">
         <div className="max-w-7xl mx-auto">
           <div className="grid md:grid-cols-12 gap-12 items-center">
             <div className="md:col-span-7">
@@ -148,14 +150,25 @@ export default function AboutPage() {
                 Our Story & Origins
               </div>
               <h2 className="text-3xl sm:text-4xl font-bold text-slate-900 leading-tight">
-                From a pool of ambitious professionals to a nationwide technology group.
+                From a pool of ambitious professionals to a nationwide
+                technology group.
               </h2>
               <div className="space-y-4 text-sm sm:text-base text-slate-600 mt-5 leading-relaxed">
                 <p>
-                  Globaltech Solution Pvt. Ltd. was founded by a dedicated team of finance experts, chartered accountants, and senior software architects with more than 15 years of industry experience. Headquartered in Teku, Kathmandu, our founding objective was to deliver a single integrated solution for Accounting, Operations, System Integration, Networking, and Cloud Hosting.
+                  Globaltech Solution Pvt. Ltd. was founded by a dedicated team
+                  of finance experts, chartered accountants, and senior software
+                  architects with more than 15 years of industry experience.
+                  Headquartered in Teku, Kathmandu, our founding objective was
+                  to deliver a single integrated solution for Accounting,
+                  Operations, System Integration, Networking, and Cloud Hosting.
                 </p>
                 <p>
-                  Over the years, we developed the Organization Management Software (OMS) suite, which has evolved into Nepal&apos;s premier IRD-certified business system. Today, GlobalTech is a comprehensive technology group powering enterprises across manufacturing, healthcare, distribution, retail, and education.
+                  Over the years, we developed the Organization Management
+                  Software (OMS) suite, which has evolved into Nepal&apos;s
+                  premier IRD-certified business system. Today, GlobalTech is a
+                  comprehensive technology group powering enterprises across
+                  manufacturing, healthcare, distribution, retail, and
+                  education.
                 </p>
               </div>
 
@@ -176,7 +189,7 @@ export default function AboutPage() {
               </div>
             </div>
 
-            <div className="md:col-span-5">
+            {/* <div className="md:col-span-5">
               <div className="relative rounded-3xl overflow-hidden border-4 border-emerald-100 shadow-xl bg-slate-100">
                 <Image
                   src="/aboutimage.png"
@@ -186,9 +199,38 @@ export default function AboutPage() {
                   className="w-full h-auto object-cover"
                 />
                 <div className="absolute bottom-4 left-4 right-4 rounded-2xl bg-white/95 p-4 shadow-lg backdrop-blur-sm border border-slate-100">
-                  <div className="text-2xl font-bold text-emerald-800">15+ Years</div>
+                  <div className="text-2xl font-bold text-emerald-800">
+                    15+ Years
+                  </div>
                   <div className="text-xs text-slate-600">
-                    Continuous technological support & innovation for Nepali organizations.
+                    Continuous technological support & innovation for Nepali
+                    organizations.
+                  </div>
+                </div>
+              </div>
+            </div> */}
+
+            <div className="md:col-span-5">
+              <div className="overflow-hidden rounded-3xl border-4 border-emerald-100 bg-white shadow-xl">
+                {/* Image at the top */}
+                <div className="relative min-h-[250px] md:min-h-[250px] bg-slate-100 hover:scale-125 transition-transform duration-300">
+                  <Image
+                    src="/aboutimage.png"
+                    alt="GlobalTech Solutions Office & Team"
+                    fill
+                    sizes="(max-width: 768px) 100vw, 42vw"
+                    className="object-contain"
+                  />
+                </div>
+
+                {/* Content below the image */}
+                <div className="border-t border-slate-100 p-5">
+                  <div className="text-2xl font-bold text-emerald-800">
+                    15+ Years
+                  </div>
+                  <div className="mt-1 text-sm text-slate-600">
+                    Continuous technological support & innovation for Nepali
+                    organizations.
                   </div>
                 </div>
               </div>
@@ -198,9 +240,9 @@ export default function AboutPage() {
       </section>
 
       {/* Company Milestones Timeline */}
-      <section className="py-20 px-6 bg-slate-50 border-b border-slate-200">
+      <section className="py-10 px-6 bg-slate-50 border-b border-slate-200">
         <div className="max-w-5xl mx-auto">
-          <div className="text-center mb-14">
+          <div className="text-center mb-10">
             <span className="inline-flex items-center gap-1.5 rounded-full bg-emerald-100/70 px-3.5 py-1 text-xs font-semibold text-emerald-900 mb-2">
               <Calendar size={13} /> Our Growth Path
             </span>
@@ -208,7 +250,8 @@ export default function AboutPage() {
               The Journey of GlobalTech
             </h2>
             <p className="mt-2 text-xs sm:text-sm text-slate-600">
-              Key milestones that shaped our evolution into a leading ERP provider in Nepal.
+              Key milestones that shaped our evolution into a leading ERP
+              provider in Nepal.
             </p>
           </div>
 
@@ -227,7 +270,9 @@ export default function AboutPage() {
                   <span className="sm:hidden inline-block text-xs font-bold text-emerald-800 mb-1">
                     {m.year}
                   </span>
-                  <h3 className="text-base font-bold text-slate-900">{m.title}</h3>
+                  <h3 className="text-base font-bold text-slate-900">
+                    {m.title}
+                  </h3>
                   <p className="mt-1 text-xs sm:text-sm text-slate-600 leading-relaxed">
                     {m.desc}
                   </p>
@@ -239,9 +284,9 @@ export default function AboutPage() {
       </section>
 
       {/* Managing Director Message / Leadership */}
-      <section className="py-20 px-6 bg-white border-b border-slate-200">
+      <section className="py-10 px-6 bg-white border-b border-slate-200">
         <div className="max-w-5xl mx-auto">
-          <div className="rounded-3xl border border-slate-200 bg-gradient-to-br from-slate-50 via-emerald-50/30 to-white p-8 sm:p-12 shadow-sm">
+          <div className="rounded-3xl border border-slate-200 bg-gradient-to-br from-slate-50 via-emerald-50/30 to-white p-8 sm:p-10 shadow-sm">
             <div className="grid md:grid-cols-12 gap-8 items-center">
               <div className="md:col-span-4 flex flex-col items-center text-center">
                 <div className="relative h-48 w-48 rounded-full overflow-hidden border-4 border-white shadow-xl bg-slate-200">
@@ -270,15 +315,24 @@ export default function AboutPage() {
                   A Message from Leadership
                 </h3>
                 <p className="text-sm sm:text-base text-slate-700 leading-relaxed italic">
-                  &ldquo;At GlobalTech, our core conviction is that Nepalese enterprises deserve software that is just as powerful, dependable, and secure as international solutions, while remaining fully tuned to local tax rules, VAT formats, and day-to-day business operations. Every module of OMS has been sculpted by listening directly to thousands of accountants, storekeepers, and entrepreneurs across Nepal. We are proud to be your local technology partners.&rdquo;
+                  &ldquo;At GlobalTech, our core conviction is that Nepalese
+                  enterprises deserve software that is just as powerful,
+                  dependable, and secure as international solutions, while
+                  remaining fully tuned to local tax rules, VAT formats, and
+                  day-to-day business operations. Every module of OMS has been
+                  sculpted by listening directly to thousands of accountants,
+                  storekeepers, and entrepreneurs across Nepal. We are proud to
+                  be your local technology partners.&rdquo;
                 </p>
                 <div className="pt-2 flex items-center gap-4 text-xs text-slate-500 font-medium">
                   <span className="flex items-center gap-1.5">
-                    <CheckCircle size={14} className="text-emerald-600" /> 100% Nepali Engineering
+                    <CheckCircle size={14} className="text-emerald-600" /> 100%
+                    Nepali Engineering
                   </span>
                   <span>•</span>
                   <span className="flex items-center gap-1.5">
-                    <ShieldCheck size={14} className="text-emerald-600" /> IRD Compliant
+                    <ShieldCheck size={14} className="text-emerald-600" /> IRD
+                    Compliant
                   </span>
                 </div>
               </div>
@@ -288,15 +342,18 @@ export default function AboutPage() {
       </section>
 
       {/* Values Section */}
-      <section className="py-20 px-6 bg-gradient-to-br from-[#01403e] to-[#0a4d4d] text-white">
+      <section className="py-10 px-6 bg-gradient-to-br from-[#01403e] to-[#0a4d4d] text-white">
         <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-14">
+          <div className="text-center mb-8">
             <span className="inline-block text-xs font-semibold uppercase tracking-wider text-lime-300 mb-2">
               Our Core Principles
             </span>
-            <h2 className="text-3xl sm:text-4xl font-bold">What Guides Our Work</h2>
+            <h2 className="text-3xl sm:text-4xl font-bold">
+              What Guides Our Work
+            </h2>
             <p className="text-sm text-emerald-100/90 mt-2 max-w-xl mx-auto">
-              The fundamental standards that drive our engineering, client support, and product roadmaps.
+              The fundamental standards that drive our engineering, client
+              support, and product roadmaps.
             </p>
           </div>
 
@@ -329,7 +386,9 @@ export default function AboutPage() {
               >
                 <v.icon className="w-8 h-8 text-lime-400 mb-4" />
                 <h3 className="text-lg font-bold text-white mb-2">{v.title}</h3>
-                <p className="text-xs text-emerald-100/80 leading-relaxed">{v.desc}</p>
+                <p className="text-xs text-emerald-100/80 leading-relaxed">
+                  {v.desc}
+                </p>
               </div>
             ))}
           </div>
@@ -337,13 +396,14 @@ export default function AboutPage() {
       </section>
 
       {/* Bottom CTA */}
-      <section className="py-20 px-6 bg-white">
+      <section className="py-10 px-6 bg-white">
         <div className="max-w-4xl mx-auto text-center">
           <h2 className="text-3xl sm:text-4xl font-bold text-slate-900">
             Ready to Partner with GlobalTech?
           </h2>
           <p className="mt-3 text-sm sm:text-base text-slate-600 max-w-2xl mx-auto leading-relaxed">
-            Schedule a visit to our Teku office or have our technical sales team demonstrate OMS at your facility.
+            Schedule a visit to our Teku office or have our technical sales team
+            demonstrate OMS at your facility.
           </p>
           <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
             <Link

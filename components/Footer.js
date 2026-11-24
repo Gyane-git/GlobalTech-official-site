@@ -125,20 +125,10 @@ export default function Footer() {
               years. Providing IRD-certified accounting, enterprise ERP, web
               development, and cloud hosting solutions.
             </p>
-
-            {/* Official Certification Badge */}
-            <div className="rounded-2xl border border-emerald-700/60 bg-emerald-900/40 p-3.5 text-xs text-emerald-200">
-              <div className="flex items-center gap-2 font-semibold text-lime-300">
-                <ShieldCheck size={16} /> Certified by IRD Nepal
-              </div>
-              <p className="mt-1 text-[11px] text-emerald-200/80 leading-normal">
-                Approved for electronic billing, CBMS data sync, and VAT
-                Annexure 13 reporting.
-              </p>
-            </div>
+            <span className="border-t-2 border-emerald-800/60 block "></span>
 
             {/* Contact Details List */}
-            <div className="space-y-2.5 text-xs text-slate-300 pt-2">
+            <div className="space-y-2.5 text-xs text-slate-300">
               <div className="flex items-start gap-2.5">
                 <MapPin className="w-4 h-4 text-lime-400 shrink-0 mt-0.5" />
                 <span>
@@ -168,6 +158,17 @@ export default function Footer() {
                 <span>Sun – Fri: 9:30 AM – 6:00 PM NST</span>
               </div>
             </div>
+
+            {/* Official Certification Badge */}
+            {/* <div className="rounded-2xl border border-emerald-700/60 bg-emerald-900/40 p-3.5 text-xs text-emerald-200">
+              <div className="flex items-center gap-2 font-semibold text-lime-300">
+                <ShieldCheck size={16} /> Certified by IRD Nepal
+              </div>
+              <p className="mt-1 text-[11px] text-emerald-200/80 leading-normal">
+                Approved for electronic billing, CBMS data sync, and VAT
+                Annexure 13 reporting.
+              </p>
+            </div> */}
           </div>
 
           {/* Product Links */}

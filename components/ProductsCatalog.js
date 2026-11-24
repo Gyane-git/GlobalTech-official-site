@@ -221,7 +221,7 @@ export default function ProductsCatalog() {
 
   return (
     <>
-      <section className="mx-auto max-w-7xl px-5 pb-16 pt-10 sm:px-8 sm:pb-20 sm:pt-14 lg:px-10">
+      <section className="mx-auto max-w-7xl px-5 pb-10 pt-10 sm:px-8 sm:pb-12 sm:pt-8 lg:px-10">
         {/* Controls: Search & Category Tabs */}
         <div className="mb-8 space-y-4">
           <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
@@ -230,7 +230,9 @@ export default function ProductsCatalog() {
               <span className="font-bold text-slate-900">
                 {filteredProducts.length}
               </span>{" "}
-              {filteredProducts.length === 1 ? "software module" : "software modules"}
+              {filteredProducts.length === 1
+                ? "software module"
+                : "software modules"}
             </p>
 
             <label className="flex w-full items-center gap-2 rounded-full border border-slate-300 bg-white px-4 py-2 text-slate-400 shadow-sm sm:max-w-xs transition focus-within:border-emerald-600 focus-within:ring-2 focus-within:ring-emerald-100">
@@ -267,7 +269,15 @@ export default function ProductsCatalog() {
         {filteredProducts.length ? (
           <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
             {filteredProducts.map((prod) => {
-              const { name, category, icon: Icon, image, accent, description, features } = prod;
+              const {
+                name,
+                category,
+                icon: Icon,
+                image,
+                accent,
+                description,
+                features,
+              } = prod;
               return (
                 <article
                   key={name}
@@ -305,8 +315,14 @@ export default function ProductsCatalog() {
                       {features && features.length > 0 && (
                         <div className="mt-3.5 space-y-1 border-t border-slate-100 pt-3">
                           {features.slice(0, 2).map((feat, idx) => (
-                            <div key={idx} className="flex items-center gap-2 text-[11px] text-slate-600">
-                              <Check size={12} className="text-emerald-600 shrink-0" />
+                            <div
+                              key={idx}
+                              className="flex items-center gap-2 text-[11px] text-slate-600"
+                            >
+                              <Check
+                                size={12}
+                                className="text-emerald-600 shrink-0"
+                              />
                               <span className="truncate">{feat}</span>
                             </div>
                           ))}
@@ -340,7 +356,8 @@ export default function ProductsCatalog() {
         ) : (
           <div className="rounded-2xl border border-dashed border-slate-300 bg-white px-6 py-14 text-center">
             <p className="font-semibold text-slate-700">
-              No products match &ldquo;{query}&rdquo; in category &ldquo;{selectedCategory}&rdquo;.
+              No products match &ldquo;{query}&rdquo; in category &ldquo;
+              {selectedCategory}&rdquo;.
             </p>
             <button
               onClick={() => {
@@ -356,8 +373,8 @@ export default function ProductsCatalog() {
       </section>
 
       {/* Product Inquiry Callout Section */}
-      <section className="mx-auto max-w-7xl px-5 pb-16 sm:px-8 sm:pb-20 lg:px-10">
-        <div className="relative overflow-hidden rounded-3xl bg-[#01403e] px-7 py-10 text-white sm:flex sm:items-center sm:justify-between sm:gap-8 sm:px-10 sm:py-12">
+      <section className="mx-auto max-w-7xl px-5 pb-16 sm:px-8 sm:pb-10 lg:px-10">
+        <div className="relative overflow-hidden rounded-3xl bg-[#01403e]  text-white sm:flex sm:items-center sm:justify-between px-7 py-8 sm:gap-8 sm:px-10 sm:py-10">
           <div
             aria-hidden="true"
             className="absolute -right-10 -top-16 h-72 w-72 rounded-full bg-lime-400/10 blur-3xl pointer-events-none"
@@ -370,7 +387,9 @@ export default function ProductsCatalog() {
               Need a custom module built for your organization?
             </h2>
             <p className="mt-2 text-xs sm:text-sm leading-relaxed text-emerald-100/85">
-              Tell us how your organization operates and our engineering team in Teku, Kathmandu will assemble the right OMS modules or build custom features.
+              Tell us how your organization operates and our engineering team in
+              Teku, Kathmandu will assemble the right OMS modules or build
+              custom features.
             </p>
           </div>
 
@@ -442,26 +461,33 @@ export default function ProductsCatalog() {
                 {selectedProduct.description}
               </p>
 
-              {selectedProduct.features && selectedProduct.features.length > 0 && (
-                <div className="mt-4 border-t border-slate-100 pt-4">
-                  <h4 className="text-xs font-bold uppercase tracking-wider text-slate-700 mb-2">
-                    Key Module Capabilities:
-                  </h4>
-                  <ul className="space-y-1.5">
-                    {selectedProduct.features.map((feat, i) => (
-                      <li key={i} className="flex items-start gap-2 text-xs text-slate-700">
-                        <Check size={14} className="text-emerald-600 shrink-0 mt-0.5" />
-                        <span>{feat}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              )}
+              {selectedProduct.features &&
+                selectedProduct.features.length > 0 && (
+                  <div className="mt-4 border-t border-slate-100 pt-4">
+                    <h4 className="text-xs font-bold uppercase tracking-wider text-slate-700 mb-2">
+                      Key Module Capabilities:
+                    </h4>
+                    <ul className="space-y-1.5">
+                      {selectedProduct.features.map((feat, i) => (
+                        <li
+                          key={i}
+                          className="flex items-start gap-2 text-xs text-slate-700"
+                        >
+                          <Check
+                            size={14}
+                            className="text-emerald-600 shrink-0 mt-0.5"
+                          />
+                          <span>{feat}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                )}
 
               <div className="mt-6 flex flex-wrap items-center gap-3 pt-2 border-t border-slate-100">
                 <a
                   href={`https://wa.me/9779802069643?text=${encodeURIComponent(
-                    `Hi GlobalTech team, I would like to request a demo and pricing for ${selectedProduct.name}.`
+                    `Hi GlobalTech team, I would like to request a demo and pricing for ${selectedProduct.name}.`,
                   )}`}
                   target="_blank"
                   rel="noreferrer"

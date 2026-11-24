@@ -1,4 +1,3 @@
-
 "use client";
 
 import { useState } from "react";
@@ -28,7 +27,6 @@ export default function ContactPage() {
     city: "",
     interest: "OMS Cloud Accounting",
     message: "",
-    
   });
 
   const [status, setStatus] = useState({ state: "idle", message: "" });
@@ -87,8 +85,8 @@ export default function ContactPage() {
         description="Have a question about OMS software, request a live product demo, or talk to our technical support team in Teku, Kathmandu."
       />
 
-      <section className="relative mx-auto max-w-7xl px-5 py-12 sm:px-8 sm:py-16 lg:px-10">
-        <div className="grid gap-10 lg:grid-cols-12">
+      <section className="relative mx-auto max-w-7xl px-5 py-8 sm:px-8 sm:py-10 lg:px-10">
+        <div className="grid gap-8 lg:grid-cols-12">
           {/* Left Column: Office info & quick reach */}
           <div className="lg:col-span-5 space-y-6">
             {/* Quick contact cards */}
@@ -100,7 +98,8 @@ export default function ContactPage() {
                 Globaltech Solution Pvt. Ltd.
               </h2>
               <p className="mt-2 text-sm text-slate-600 leading-relaxed">
-                Pioneering IRD-certified accounting and ERP solutions in Nepal for over 15 years.
+                Pioneering IRD-certified accounting and ERP solutions in Nepal
+                for over 15 years.
               </p>
 
               <div className="mt-6 space-y-4 border-t border-slate-100 pt-6">
@@ -130,11 +129,26 @@ export default function ContactPage() {
                       Telephone Lines
                     </p>
                     <div className="mt-0.5 flex flex-wrap gap-x-3 text-sm font-medium text-slate-800">
-                      <a href="tel:+97715329949" className="hover:text-emerald-700 transition">01-5329949</a>
+                      <a
+                        href="tel:+97715329949"
+                        className="hover:text-emerald-700 transition"
+                      >
+                        01-5329949
+                      </a>
                       <span>•</span>
-                      <a href="tel:+97715329952" className="hover:text-emerald-700 transition">01-5329952</a>
+                      <a
+                        href="tel:+97715329952"
+                        className="hover:text-emerald-700 transition"
+                      >
+                        01-5329952
+                      </a>
                       <span>•</span>
-                      <a href="tel:+97715329982" className="hover:text-emerald-700 transition">01-5329982</a>
+                      <a
+                        href="tel:+97715329982"
+                        className="hover:text-emerald-700 transition"
+                      >
+                        01-5329982
+                      </a>
                     </div>
                   </div>
                 </div>
@@ -149,12 +163,22 @@ export default function ContactPage() {
                     </p>
                     <div className="mt-0.5 space-y-1 text-sm font-medium text-slate-800">
                       <div>
-                        <a href="https://wa.me/9779851069643" target="_blank" rel="noreferrer" className="text-emerald-700 hover:underline">
+                        <a
+                          href="https://wa.me/9779851069643"
+                          target="_blank"
+                          rel="noreferrer"
+                          className="text-emerald-700 hover:underline"
+                        >
                           +977-9851069643 (Marketing & Demo)
                         </a>
                       </div>
                       <div>
-                        <a href="https://wa.me/9779802069643" target="_blank" rel="noreferrer" className="text-emerald-700 hover:underline">
+                        <a
+                          href="https://wa.me/9779802069643"
+                          target="_blank"
+                          rel="noreferrer"
+                          className="text-emerald-700 hover:underline"
+                        >
                           +977-9802069643 (Direct WhatsApp)
                         </a>
                       </div>
@@ -171,12 +195,21 @@ export default function ContactPage() {
                       Email Inquiries
                     </p>
                     <p className="text-sm font-medium text-slate-800 mt-0.5">
-                      <a href="mailto:info@globaltechnepal.com" className="hover:text-emerald-700 transition">
+                      <a
+                        href="mailto:info@globaltechnepal.com"
+                        className="hover:text-emerald-700 transition"
+                      >
                         info@globaltechnepal.com
                       </a>
                     </p>
                     <p className="text-xs text-slate-500">
-                      Support: <a href="mailto:support@globaltechnepal.com" className="hover:underline">support@globaltechnepal.com</a>
+                      Support:{" "}
+                      <a
+                        href="mailto:support@globaltechnepal.com"
+                        className="hover:underline"
+                      >
+                        support@globaltechnepal.com
+                      </a>
                     </p>
                   </div>
                 </div>
@@ -193,7 +226,8 @@ export default function ContactPage() {
                       Sunday – Friday: 9:30 AM – 6:00 PM
                     </p>
                     <p className="text-xs text-slate-500">
-                      Saturday: Closed (24/7 on-call emergency support for hospitals & retail)
+                      Saturday: Closed (24/7 on-call emergency support for
+                      hospitals & retail)
                     </p>
                   </div>
                 </div>
@@ -209,14 +243,18 @@ export default function ContactPage() {
                 Inland Revenue Department (IRD) Approved
               </h3>
               <p className="mt-1.5 text-xs leading-relaxed text-emerald-100/90">
-                Our OMS Billing & ERP software meets all tax requirements set by the IRD Nepal, including electronic billing, VAT register Annexure 13, and CBMS synchronization.
+                Our OMS Billing & ERP software meets all tax requirements set by
+                the IRD Nepal, including electronic billing, VAT register
+                Annexure 13, and CBMS synchronization.
               </p>
               <div className="mt-4 flex items-center gap-3 pt-3 border-t border-emerald-800/80 text-xs text-emerald-200">
                 <div className="flex items-center gap-1.5">
-                  <CheckCircle2 size={14} className="text-lime-400" /> VAT & PAN Ready
+                  <CheckCircle2 size={14} className="text-lime-400" /> VAT & PAN
+                  Ready
                 </div>
                 <div className="flex items-center gap-1.5">
-                  <CheckCircle2 size={14} className="text-lime-400" /> Real-time Sync
+                  <CheckCircle2 size={14} className="text-lime-400" /> Real-time
+                  Sync
                 </div>
               </div>
             </div>
@@ -233,7 +271,9 @@ export default function ContactPage() {
                   Tell us about your organization
                 </h2>
                 <p className="mt-2 text-sm text-slate-600">
-                  Fill in your details below and our technical solution specialists will get in touch to arrange an on-site or virtual demonstration.
+                  Fill in your details below and our technical solution
+                  specialists will get in touch to arrange an on-site or virtual
+                  demonstration.
                 </p>
               </div>
 
@@ -268,7 +308,8 @@ export default function ContactPage() {
 
                   <div>
                     <label className="block text-xs font-semibold text-slate-700">
-                      Company / Organization Name <span className="text-red-500">*</span>
+                      Company / Organization Name{" "}
+                      <span className="text-red-500">*</span>
                     </label>
                     <input
                       type="text"
@@ -285,7 +326,8 @@ export default function ContactPage() {
                 <div className="grid gap-4 sm:grid-cols-2">
                   <div>
                     <label className="block text-xs font-semibold text-slate-700">
-                      Mobile / WhatsApp Number <span className="text-red-500">*</span>
+                      Mobile / WhatsApp Number{" "}
+                      <span className="text-red-500">*</span>
                     </label>
                     <input
                       type="tel"
@@ -338,15 +380,33 @@ export default function ContactPage() {
                       onChange={handleChange}
                       className="mt-1.5 w-full rounded-xl border border-slate-300 bg-white px-3.5 py-2.5 text-sm text-slate-900 outline-none transition focus:border-emerald-600 focus:ring-2 focus:ring-emerald-100"
                     >
-                      <option value="OMS Cloud Accounting">OMS Cloud Accounting</option>
-                      <option value="Complete Enterprise ERP">Complete Enterprise ERP</option>
-                      <option value="POS & Retail Billing">POS & Retail Billing</option>
-                      <option value="Hospital & Healthcare Manager">Hospital & Healthcare Manager</option>
-                      <option value="Payroll & HR Management">Payroll & HR Management</option>
-                      <option value="Restaurant & F&B Billing">Restaurant & F&B Billing</option>
-                      <option value="Custom Software Development">Custom Software Development</option>
-                      <option value="Web & Mobile App Solutions">Web & Mobile App Solutions</option>
-                      <option value="Cloud VPS & Domain Hosting">Cloud VPS & Domain Hosting</option>
+                      <option value="OMS Cloud Accounting">
+                        OMS Cloud Accounting
+                      </option>
+                      <option value="Complete Enterprise ERP">
+                        Complete Enterprise ERP
+                      </option>
+                      <option value="POS & Retail Billing">
+                        POS & Retail Billing
+                      </option>
+                      <option value="Hospital & Healthcare Manager">
+                        Hospital & Healthcare Manager
+                      </option>
+                      <option value="Payroll & HR Management">
+                        Payroll & HR Management
+                      </option>
+                      <option value="Restaurant & F&B Billing">
+                        Restaurant & F&B Billing
+                      </option>
+                      <option value="Custom Software Development">
+                        Custom Software Development
+                      </option>
+                      <option value="Web & Mobile App Solutions">
+                        Web & Mobile App Solutions
+                      </option>
+                      <option value="Cloud VPS & Domain Hosting">
+                        Cloud VPS & Domain Hosting
+                      </option>
                     </select>
                   </div>
                 </div>
@@ -374,11 +434,17 @@ export default function ContactPage() {
                   </button>
                   <p className="mt-3 text-center text-xs text-slate-500">
                     Prefer direct calling? Reach our sales desk at{" "}
-                    <a href="tel:+97715329949" className="font-semibold text-emerald-800 underline">
+                    <a
+                      href="tel:+97715329949"
+                      className="font-semibold text-emerald-800 underline"
+                    >
                       01-5329949
                     </a>{" "}
                     or mobile{" "}
-                    <a href="tel:+9779851069643" className="font-semibold text-emerald-800 underline">
+                    <a
+                      href="tel:+9779851069643"
+                      className="font-semibold text-emerald-800 underline"
+                    >
                       +977-9851069643
                     </a>
                   </p>
@@ -389,12 +455,15 @@ export default function ContactPage() {
         </div>
 
         {/* Interactive Map Embed */}
-        <div className="mt-14 rounded-3xl overflow-hidden border border-slate-200 bg-white p-2 shadow-sm">
+        <div className="mt-10 rounded-3xl overflow-hidden border border-slate-200 bg-white p-2 shadow-sm">
           <div className="p-4 sm:p-5 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 border-b border-slate-100">
             <div>
-              <h3 className="text-lg font-bold text-slate-900">Visit Our Teku Office</h3>
+              <h3 className="text-lg font-bold text-slate-900">
+                Visit Our Teku Office
+              </h3>
               <p className="text-xs text-slate-500">
-                Globaltech Solution Pvt. Ltd., Teku, Kathmandu (Near Bagmati Bridge & Health Dept.)
+                Globaltech Solution Pvt. Ltd., Teku, Kathmandu (Near Bagmati
+                Bridge & Health Dept.)
               </p>
             </div>
             <a

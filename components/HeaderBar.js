@@ -132,7 +132,7 @@ export default function HeaderBar() {
             aria-label="Open menu"
             aria-expanded={isOpen}
             onClick={() => setIsOpen(true)}
-            className="rounded-xl border border-slate-200 p-2 text-slate-700 transition hover:bg-slate-100 lg:hidden"
+            className="rounded-sm border border-slate-200 p-1 text-slate-700 transition hover:bg-slate-100 lg:hidden"
           >
             <Menu size={22} />
           </button>

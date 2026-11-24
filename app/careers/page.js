@@ -134,10 +134,26 @@ const jobs = [
 ];
 
 const process = [
-  { step: "01", title: "Apply", text: "Send your CV and a short note about yourself." },
-  { step: "02", title: "Screening", text: "A quick call with our HR team to get to know you." },
-  { step: "03", title: "Technical Round", text: "A practical discussion or task relevant to the role." },
-  { step: "04", title: "Offer", text: "Meet the team, get your offer and join us!" },
+  {
+    step: "01",
+    title: "Apply",
+    text: "Send your CV and a short note about yourself.",
+  },
+  {
+    step: "02",
+    title: "Screening",
+    text: "A quick call with our HR team to get to know you.",
+  },
+  {
+    step: "03",
+    title: "Technical Round",
+    text: "A practical discussion or task relevant to the role.",
+  },
+  {
+    step: "04",
+    title: "Offer",
+    text: "Meet the team, get your offer and join us!",
+  },
 ];
 // ============================
 
@@ -151,17 +167,17 @@ export default function CareersPage() {
 
   const applyLink = (title) =>
     `mailto:${CAREERS_EMAIL}?subject=${encodeURIComponent(
-      `Application for ${title}`
+      `Application for ${title}`,
     )}&body=${encodeURIComponent(
-      "Hello Global Tech team,\n\nI would like to apply for this position. Please find my CV attached.\n\nName:\nPhone:\nLinkedIn / Portfolio:\n"
+      "Hello Global Tech team,\n\nI would like to apply for this position. Please find my CV attached.\n\nName:\nPhone:\nLinkedIn / Portfolio:\n",
     )}`;
 
   return (
     <main className="bg-white text-gray-900">
       {/* Hero */}
       <section className="bg-gradient-to-br from-slate-900 via-slate-800 to-green-900 text-white">
-        <div className="mx-auto max-w-7xl px-6 py-24 text-center md:py-32">
-          <span className="inline-block rounded-full border border-white/20 bg-white/10 px-4 py-1 text-sm tracking-wide">
+        <div className="mx-auto max-w-7xl px-6 py-10 text-center md:py-16">
+          <span className="inline-block rounded-full border border-white/20 bg-white/10 px-4 py-1 text-sm tracking-wide hover:bg-amber-50 trasition duration-300 hover:text-black">
             Careers
           </span>
           <h1 className="mt-6 text-4xl font-bold leading-tight md:text-6xl">
@@ -170,7 +186,8 @@ export default function CareersPage() {
           </h1>
           <p className="mx-auto mt-6 max-w-2xl text-lg text-slate-300">
             Join a passionate team creating technology that matters. We are
-            always looking for talented people who love to learn, build and grow.
+            always looking for talented people who love to learn, build and
+            grow.
           </p>
           <a
             href="#openings"
@@ -182,31 +199,36 @@ export default function CareersPage() {
       </section>
 
       {/* Perks */}
-      <section className="mx-auto max-w-7xl px-6 py-20">
+      <section className="mx-auto max-w-7xl px-6 py-10">
         <div className="mx-auto max-w-2xl text-center">
           <h2 className="text-3xl font-bold md:text-4xl">Why join us?</h2>
-          <p className="mt-4 text-gray-600">
-            We take care of our people so they can do the best work of their lives.
+          <p className="mt-3 text-gray-600">
+            We take care of our people so they can do the best work of their
+            lives.
           </p>
         </div>
-        <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {perks.map((p) => (
             <div
               key={p.title}
-              className="rounded-2xl border border-gray-200 bg-white p-8 transition hover:-translate-y-1 hover:shadow-lg"
+              className="rounded-2xl border border-gray-200 bg-white p-5 transition hover:-translate-y-1 hover:shadow-lg"
             >
-              <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-green-50 text-2xl">
-                {p.icon}
+              {/* Icon and title in the same row */}
+              <div className="flex items-center gap-3">
+                <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-green-50 text-2xl">
+                  {p.icon}
+                </div>
+                <h3 className="text-lg font-semibold">{p.title}</h3>
               </div>
-              <h3 className="mt-5 text-lg font-semibold">{p.title}</h3>
-              <p className="mt-2 text-sm text-gray-600">{p.text}</p>
+
+              <p className="mt-3 text-sm text-gray-600">{p.text}</p>
             </div>
           ))}
         </div>
       </section>
 
       {/* Openings */}
-      <section id="openings" className="scroll-mt-20 bg-gray-50 py-20">
+      <section id="openings" className="scroll-mt-20 bg-gray-50 py-8">
         <div className="mx-auto max-w-5xl px-6">
           <div className="text-center">
             <h2 className="text-3xl font-bold md:text-4xl">Open positions</h2>
@@ -216,7 +238,7 @@ export default function CareersPage() {
           </div>
 
           {/* Filter */}
-          <div className="mt-8 flex flex-wrap justify-center gap-2">
+          <div className="mt-5 flex flex-wrap justify-center gap-2">
             {departments.map((d) => (
               <button
                 key={d}
@@ -305,14 +327,19 @@ export default function CareersPage() {
       </section>
 
       {/* Hiring process */}
-      <section className="mx-auto max-w-7xl px-6 py-20">
+      <section className="mx-auto max-w-7xl px-6 py-8">
         <div className="mx-auto max-w-2xl text-center">
           <h2 className="text-3xl font-bold md:text-4xl">Our hiring process</h2>
         </div>
-        <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
           {process.map((s) => (
-            <div key={s.step} className="rounded-2xl border border-gray-200 p-6">
-              <span className="text-3xl font-bold text-green-500">{s.step}</span>
+            <div
+              key={s.step}
+              className="rounded-2xl border border-gray-200 p-6"
+            >
+              <span className="text-3xl font-bold text-green-500">
+                {s.step}
+              </span>
               <h3 className="mt-3 text-lg font-semibold">{s.title}</h3>
               <p className="mt-2 text-sm text-gray-600">{s.text}</p>
             </div>
@@ -321,8 +348,8 @@ export default function CareersPage() {
       </section>
 
       {/* CTA */}
-      <section className="px-6 pb-24">
-        <div className="mx-auto max-w-5xl rounded-3xl bg-gradient-to-r from-gray-800 to-green-900 px-8 py-14 text-center text-white">
+      <section className="px-6 pb-10">
+        <div className="mx-auto max-w-5xl rounded-3xl bg-gradient-to-r from-gray-800 to-green-900 px-8 py-8 text-center text-white">
           <h2 className="text-3xl font-bold md:text-4xl">
             Don&apos;t see a role that fits?
           </h2>

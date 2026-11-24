@@ -1,4 +1,9 @@
-export default function MarketingPageHero({ eyebrow, title, description, breadcrumb }) {
+export default function MarketingPageHero({
+  eyebrow,
+  title,
+  description,
+  breadcrumb,
+}) {
   return (
     <section className="marketing-hero relative overflow-hidden bg-[#0a4d4d] text-white">
       <div
@@ -14,8 +19,8 @@ export default function MarketingPageHero({ eyebrow, title, description, breadcr
         aria-hidden="true"
         className="absolute -right-20 -top-32 h-96 w-96 rounded-full bg-emerald-500/10 blur-3xl pointer-events-none"
       />
-      <div className="relative mx-auto max-w-7xl px-5 pb-14 pt-9 sm:px-8 sm:pb-16 lg:px-10">
-        <p className="mb-6 text-xs font-semibold uppercase tracking-wider text-emerald-200/80">
+      <div className="relative mx-auto max-w-7xl px-5 pb-10 pt-5 sm:px-8 sm:pb-10 lg:px-10">
+        <p className="mb-4 text-xs font-semibold uppercase tracking-wider text-emerald-200/80">
           Home <span className="mx-2 text-emerald-400/50">/</span> {breadcrumb}
         </p>
         <p className="mb-4 flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-lime-300">
